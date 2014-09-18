@@ -1,0 +1,721 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) 2000 - 2014 Silverpeas
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    As a special exception to the terms and conditions of version 3.0 of
+    the GPL, you may redistribute this Program in connection with Free/Libre
+    Open Source Software ("FLOSS") applications as described in Silverpeas's
+    FLOSS exception.  You should have received a copy of the text describing
+    the FLOSS exception, and it is also available here:
+    "http://www.silverpeas.com/legal/licensing"
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses />.
+
+-->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.silverpeas</groupId>
+  <artifactId>silverpeas-dependencies-bom</artifactId>
+  <version>1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>Silverpeas Dependencies BOM</name>
+  <description>A BOM with all the dependencies required to build and run Silverpeas</description>
+
+  <scm>
+    <connection>scm:git:git@github.com:Silverpeas/silverpeas-dependencies-bom.git</connection>
+    <developerConnection>scm:git:git@github.com:Silverpeas/silverpeas-dependencies-bom.git
+    </developerConnection>
+    <url>http://gitub.com/Silverpeas/silverpeas-dependencies-bom.git</url>
+    <tag>HEAD</tag>
+  </scm>
+
+  <dependencyManagement>
+    <dependencies>
+      <!-- JEE 7 dependencies -->
+      <dependency>
+        <groupId>javax</groupId>
+        <artifactId>javaee-api</artifactId>
+        <version>7.0</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>javax.servlet.jsp.jstl</groupId>
+        <artifactId>javax.servlet.jsp.jstl-api</artifactId>
+        <version>1.2.1</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>javax.enterprise</groupId>
+        <artifactId>cdi-api</artifactId>
+        <version>1.2</version>
+        <scope>provided</scope>
+      </dependency>
+
+      <!-- Portlet dependencies -->
+      <dependency>
+        <groupId>javax.portlet</groupId>
+        <artifactId>portlet-api</artifactId>
+        <version>2.0</version>
+      </dependency>
+      <dependency>
+        <groupId>com.sun.portal.portletcontainer</groupId>
+        <artifactId>container</artifactId>
+        <version>2.1</version>
+      </dependency>
+      <dependency>
+        <groupId>com.sun.portal.portletcontainer</groupId>
+        <artifactId>portlet-container</artifactId>
+        <version>2.1</version>
+      </dependency>
+      <dependency>
+        <groupId>javax.ccpp</groupId>
+        <artifactId>ccpp</artifactId>
+        <version>1.0</version>
+      </dependency>
+
+      <!-- Quartz dependencies -->
+      <dependency>
+        <groupId>org.quartz-scheduler</groupId>
+        <artifactId>quartz</artifactId>
+        <version>1.8.6</version>
+        <exclusions>
+          <exclusion>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+
+      <!-- Lucene dependencies
+      TODO: update the existing code to use the more recent lucene framework (currently 4.10) -->
+      <dependency>
+        <groupId>org.apache.lucene</groupId>
+        <artifactId>lucene-core</artifactId>
+        <version>${lucene.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.lucene</groupId>
+        <artifactId>lucene-analyzers</artifactId>
+        <version>${lucene.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.lucene</groupId>
+        <artifactId>lucene-spellchecker</artifactId>
+        <version>${lucene.version}</version>
+      </dependency>
+      <!-- USED BY OUR INDEX ENGINE TO PARSE DOCUMENT CONTENTS
+       TODO: check we can omit them Lucene can parse any document content with a recent version of Tika -->
+      <dependency>
+        <groupId>org.jdom</groupId>
+        <artifactId>jdom</artifactId>
+        <version>1.1.3</version>
+      </dependency>
+      <dependency>
+        <groupId>net.htmlparser.jericho</groupId>
+        <artifactId>jericho-html</artifactId>
+        <version>2.6.1</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.pdfbox</groupId>
+        <artifactId>pdfbox</artifactId>
+        <version>1.8.6</version>
+        <exclusions>
+          <exclusion>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+
+      <!-- POI dependencies
+      TODO: see if we can omit some of them as office documents are parsed now by Tika
+            see if we can use another lib to extract attachments from mails -->
+      <dependency>
+        <groupId>org.apache.poi</groupId>
+        <artifactId>poi</artifactId>
+        <version>${poi.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.poi</groupId>
+        <artifactId>poi-scratchpad</artifactId>
+        <version>${poi.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.poi</groupId>
+        <artifactId>poi-ooxml</artifactId>
+        <version>${poi.version}</version>
+      </dependency>
+
+      <!-- Tika dependencies -->
+      <dependency>
+        <groupId>org.apache.tika</groupId>
+        <artifactId>tika-core</artifactId>
+        <version>1.5</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.tika</groupId>
+        <artifactId>tika-parsers</artifactId>
+        <version>1.5</version>
+        <exclusions>
+          <exclusion>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-compress</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.apache.pdfbox</groupId>
+            <artifactId>pdfbox</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>com.drewnoakes</groupId>
+            <artifactId>metadata-extractor</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-scratchpad</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcmail-jdk15</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk15</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>rome</groupId>
+            <artifactId>rome</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+
+      <!-- Spring Social dependencies -->
+      <dependency>
+        <groupId>org.springframework.social</groupId>
+        <artifactId>spring-social-linkedin</artifactId>
+        <exclusions>
+          <exclusion>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+          </exclusion>
+        </exclusions>
+        <version>1.0.0.RC1</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.social</groupId>
+        <artifactId>spring-social-facebook</artifactId>
+        <version>1.0.2.RELEASE</version>
+        <exclusions>
+          <exclusion>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-core-asl</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+
+      <!-- JCR dependencies -->
+      <dependency>
+        <groupId>javax.jcr</groupId>
+        <artifactId>jcr</artifactId>
+        <version>2.0</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.jackrabbit</groupId>
+        <artifactId>jackrabbit-api</artifactId>
+        <version>${jackrabbit.version}</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.jackrabbit</groupId>
+        <artifactId>jackrabbit-core</artifactId>
+        <version>${jackrabbit.version}</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.jackrabbit</groupId>
+        <artifactId>jackrabbit-webdav</artifactId>
+        <version>${jackrabbit.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+
+      <!-- The Bouncy Castle dependencies -->
+      <dependency>
+        <groupId>org.bouncycastle</groupId>
+        <artifactId>bcprov-jdk15on</artifactId>
+        <version>${bouncycastle.version}</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.bouncycastle</groupId>
+        <artifactId>bcmail-jdk15on</artifactId>
+        <version>${bouncycastle.version}</version>
+        <scope>provided</scope>
+      </dependency>
+
+      <!-- Authentication mechanisms -->
+      <dependency>
+        <groupId>org.silverpeas.spnego</groupId>
+        <artifactId>silverpeas-spnego</artifactId>
+        <version>1.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.jasig.cas.client</groupId>
+        <artifactId>cas-client-core</artifactId>
+        <version>3.3.3</version>
+      </dependency>
+
+      <!-- Castor dependencies (beuuurk) -->
+      <!-- Castor TODO: to remove to be replacing by both JAXB and JPA -->
+      <dependency>
+        <groupId>org.codehaus.castor</groupId>
+        <artifactId>castor-jdo</artifactId>
+        <version>1.2</version>
+        <exclusions>
+          <exclusion>
+            <groupId>cglib</groupId>
+            <artifactId>cglib-full</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.codehaus.castor</groupId>
+            <artifactId>castor-xml-schema</artifactId>
+          </exclusion>
+          <exclusion>
+            <artifactId>jta</artifactId>
+            <groupId>javax.transaction</groupId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>org.codehaus.castor</groupId>
+        <artifactId>castor</artifactId>
+        <version>1.2</version>
+      </dependency>
+
+      <!-- application cache dependencies -->
+      <dependency>
+        <groupId>net.sf.ehcache</groupId>
+        <artifactId>ehcache-core</artifactId>
+        <version>2.6.9</version>
+        <exclusions>
+          <exclusion>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <!--
+      <dependency>
+        <groupId>opensymphony</groupId>
+        <artifactId>oscache</artifactId>
+        <version>2.4.1</version>
+        <exclusions>
+          <exclusion>
+            <groupId>javax.jms</groupId>
+            <artifactId>jms</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      -->
+      <!-- IMAGE HANDLING LIBS FOR GALLERY -->
+      <!-- TODO: remove their use from Gallery and replace them by our own API wrapping a more decent
+           and recent image handling libs (like Image Magick for example) -->
+      <dependency>
+        <groupId>com.drewnoakes</groupId>
+        <artifactId>metadata-extractor</artifactId>
+        <version>2.6.2</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.sanselan</groupId>
+        <artifactId>sanselan</artifactId>
+        <version>0.97-incubator</version>
+      </dependency>
+      <!-- END OF IMAGE HANDLING LIBS FOR GALLERY -->
+
+      <!-- Logging APIs using in several dependencies -->
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>${slf4j.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-log4j12</artifactId>
+        <version>${slf4j.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>jcl-over-slf4j</artifactId>
+        <version>${slf4j.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>log4j</groupId>
+        <artifactId>log4j</artifactId>
+        <version>1.2.17</version>
+      </dependency>
+      <dependency>
+        <groupId>commons-logging</groupId>
+        <artifactId>commons-logging</artifactId>
+        <version>99.0-does-not-exist</version>
+        <exclusions>
+          <exclusion>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>commons-logging</groupId>
+        <artifactId>commons-logging-api</artifactId>
+        <version>99.0-does-not-exist</version>
+      </dependency>
+
+      <!-- Atom and RSS API -->
+      <dependency>
+        <groupId>rome</groupId>
+        <artifactId>rome</artifactId>
+        <version>1.0</version>
+        <exclusions>
+          <exclusion>
+            <groupId>jdom</groupId>
+            <artifactId>jdom</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <!-- TODO: replace it by another more recent RSS/Atom lib. There is several different RSS/Atom libs
+      used in Silverpeas. Choose one of them or another more recent or none. -->
+      <dependency>
+        <groupId>informa</groupId>
+        <artifactId>informa</artifactId>
+        <version>0.6.5</version>
+        <classifier>silverpeas</classifier>
+        <exclusions>
+          <exclusion>
+            <groupId>jdom</groupId>
+            <artifactId>jdom</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>lucene</groupId>
+            <artifactId>lucene</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>hibernate</groupId>
+            <artifactId>hibernate</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>odmg</groupId>
+            <artifactId>odmg</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>ehcache</groupId>
+            <artifactId>ehcache</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+
+      <!-- iCal API -->
+      <dependency>
+        <groupId>org.mnode.ical4j</groupId>
+        <artifactId>ical4j</artifactId>
+        <version>1.0.5.2</version>
+        <exclusions>
+          <exclusion>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>backport-util-concurrent</groupId>
+            <artifactId>backport-util-concurrent</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+
+      <!-- API to handle office document (templating + conversion) -->
+      <dependency>
+        <groupId>org.odftoolkit</groupId>
+        <artifactId>simple-odf</artifactId>
+        <version>0.6.6</version>
+      </dependency>
+      <dependency>
+        <groupId>com.artofsolving</groupId>
+        <artifactId>jodconverter</artifactId>
+        <version>2.2.1</version>
+      </dependency>
+
+      <!-- ImageMagick API -->
+      <dependency>
+        <groupId>org.im4java</groupId>
+        <artifactId>im4java</artifactId>
+        <version>1.4.0</version>
+      </dependency>
+
+      <!-- Antlr String Templater -->
+      <dependency>
+        <groupId>org.antlr</groupId>
+        <artifactId>stringtemplate</artifactId>
+        <version>3.2.1</version>
+        <exclusions>
+          <!-- antlr is provided by the JEE container -->
+          <exclusion>
+            <groupId>org.antlr</groupId>
+            <artifactId>antlr-runtime</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+
+      <!-- Database dependencies -->
+      <dependency>
+        <groupId>postgresql</groupId>
+        <artifactId>postgresql</artifactId>
+        <version>9.2-1002.jdbc4</version>
+      </dependency>
+      <dependency>
+        <groupId>net.sourceforge.jtds</groupId>
+        <artifactId>jtds</artifactId>
+        <version>1.3.1</version>
+      </dependency>
+      <dependency>
+        <groupId>com.h2database</groupId>
+        <artifactId>h2</artifactId>
+        <version>1.4.181</version>
+      </dependency>
+
+      <!-- Util dependencies -->
+      <dependency>
+        <groupId>commons-fileupload</groupId>
+        <artifactId>commons-fileupload</artifactId>
+        <version>1.3.1</version>
+      </dependency>
+      <dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        <version>2.4</version>
+      </dependency>
+      <dependency>
+        <groupId>commons-codec</groupId>
+        <artifactId>commons-codec</artifactId>
+        <version>1.9</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>3.3.2</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-exec</artifactId>
+        <version>1.2</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-compress</artifactId>
+        <version>1.8.1</version>
+      </dependency>
+      <dependency>
+        <groupId>xerces</groupId>
+        <artifactId>xercesImpl</artifactId>
+        <version>2.10.0</version>
+        <scope>provided</scope>
+      </dependency>
+      <!-- Cryptolib TODO: replace it by JDK to handle X509 certificate  -->
+      <dependency>
+        <groupId>net.sourceforge</groupId>
+        <artifactId>cryptolib</artifactId>
+        <version>1.0</version>
+      </dependency>
+      <!-- TODO: replace its use by using JAXB -->
+      <dependency>
+        <groupId>com.thoughtworks.xstream</groupId>
+        <artifactId>xstream</artifactId>
+        <version>1.4.7</version>
+      </dependency>
+      <!-- HTML Parsing API -->
+      <dependency>
+        <groupId>net.sourceforge.nekohtml</groupId>
+        <artifactId>nekohtml</artifactId>
+        <version>1.9.15</version>
+      </dependency>
+      <!-- Old HTML API -->
+      <dependency>
+        <groupId>ecs</groupId>
+        <artifactId>ecs</artifactId>
+        <version>1.4.2</version>
+      </dependency>
+      <!-- Old LDAP API -->
+      <dependency>
+        <groupId>com.novell.ldap</groupId>
+        <artifactId>jldap</artifactId>
+        <version>2009-10-07</version>
+      </dependency>
+      <!-- API for generating PDF documents
+          TODO: is there a way to remove its use? -->
+      <dependency>
+        <groupId>com.lowagie</groupId>
+        <artifactId>itext</artifactId>
+        <version>2.1.7</version>
+        <exclusions>
+          <exclusion>
+            <groupId>bouncycastle</groupId>
+            <artifactId>bcmail-jdk14</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>bouncycastle</groupId>
+            <artifactId>bcprov-jdk14</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>bouncycastle</groupId>
+            <artifactId>bctsp-jdk14</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <!-- OWASP encoders of text for security purpose -->
+      <dependency>
+        <groupId>org.owasp.encoder</groupId>
+        <artifactId>encoder</artifactId>
+        <version>${owasp.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.owasp.encoder</groupId>
+        <artifactId>encoder-jsp</artifactId>
+        <version>${owasp.version}</version>
+      </dependency>
+      <!-- old API for making charts in Java -->
+      <dependency>
+        <groupId>jcharts</groupId>
+        <artifactId>jcharts</artifactId>
+        <version>0.7.5</version>
+      </dependency>
+      <!-- Unicode and Globalization Support API -->
+      <dependency>
+        <groupId>com.ibm.icu</groupId>
+        <artifactId>icu4j</artifactId>
+        <version>4.4</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <properties>
+    <bouncycastle.version>1.51</bouncycastle.version>
+    <jackrabbit.version>2.8.0</jackrabbit.version>
+    <slf4j.version>1.7.7</slf4j.version>
+    <lucene.version>3.6.2</lucene.version>
+    <poi.version>3.10.1</poi.version>
+    <tika.version>1.5</tika.version>
+    <owasp.version>1.1.1</owasp.version>
+  </properties>
+
+</project>
