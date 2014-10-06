@@ -309,9 +309,50 @@
       </dependency>
       <dependency>
         <groupId>org.apache.jackrabbit</groupId>
+        <artifactId>jackrabbit-jcr-server</artifactId>
+        <version>${jackrabbit.version}</version>
+        <scope>compile</scope>
+        <exclusions>
+          <exclusion>
+            <groupId>javax.jcr</groupId>
+            <artifactId>jcr</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.apache.jackrabbit</groupId>
+            <artifactId>jackrabbit-spi-commons</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.apache.jackrabbit</groupId>
+            <artifactId>jackrabbit-jcr-commons</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.apache.tika</groupId>
+            <artifactId>tika-core</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>xerces</groupId>
+            <artifactId>xercesImpl</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.jackrabbit</groupId>
         <artifactId>jackrabbit-webdav</artifactId>
         <version>${jackrabbit.version}</version>
+        <scope>compile</scope>
         <exclusions>
+          <exclusion>
+            <groupId>commons-httpclient</groupId>
+            <artifactId>commons-httpclient</artifactId>
+          </exclusion>
           <exclusion>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
