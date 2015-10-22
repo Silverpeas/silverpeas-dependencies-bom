@@ -649,7 +649,7 @@
       <dependency>
         <groupId>org.mnode.ical4j</groupId>
         <artifactId>ical4j</artifactId>
-        <version>1.0.5.2</version>
+        <version>1.0.6</version>
         <exclusions>
           <exclusion>
             <groupId>commons-logging</groupId>
@@ -662,10 +662,6 @@
           <exclusion>
             <groupId>commons-lang</groupId>
             <artifactId>commons-lang</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>backport-util-concurrent</groupId>
-            <artifactId>backport-util-concurrent</artifactId>
           </exclusion>
         </exclusions>
       </dependency>
