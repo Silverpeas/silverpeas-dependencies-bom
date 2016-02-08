@@ -848,6 +848,12 @@
         </exclusions>
       </dependency>
 
+      <dependency>
+        <artifactId>commons-httpclient</artifactId>
+        <groupId>commons-httpclient</groupId>
+        <version>3.1</version>
+      </dependency>
+
     </dependencies>   
   </dependencyManagement>
 
