@@ -582,16 +582,20 @@
         <version>2.0.0</version>
         <exclusions>
           <exclusion>
-            <groupId>commons-logging</groupId>
-            <artifactId>commons-logging</artifactId>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
           </exclusion>
           <exclusion>
             <groupId>commons-codec</groupId>
             <artifactId>commons-codec</artifactId>
           </exclusion>
           <exclusion>
-            <groupId>commons-lang</groupId>
-            <artifactId>commons-lang</artifactId>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>biz.aQute.bnd</groupId>
+            <artifactId>bndlib</artifactId>
           </exclusion>
         </exclusions>
       </dependency>
