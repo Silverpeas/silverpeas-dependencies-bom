@@ -400,43 +400,6 @@
         </exclusions>
       </dependency>
 
-      <!-- Castor dependencies (beuuurk) -->
-      <!-- Castor TODO: to remove to be replacing by both JAXB and JPA -->
-      <dependency>
-        <groupId>org.codehaus.castor</groupId>
-        <artifactId>castor-jdo</artifactId>
-        <version>1.2</version>
-        <exclusions>
-          <exclusion>
-            <groupId>cglib</groupId>
-            <artifactId>cglib-full</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.codehaus.castor</groupId>
-            <artifactId>castor-xml-schema</artifactId>
-          </exclusion>
-          <exclusion>
-            <artifactId>jta</artifactId>
-            <groupId>javax.transaction</groupId>
-          </exclusion>
-        </exclusions>
-      </dependency>
-      <dependency>
-        <groupId>org.codehaus.castor</groupId>
-        <artifactId>castor</artifactId>
-        <version>1.2</version>
-        <exclusions>
-          <exclusion>
-            <artifactId>xercesImpl</artifactId>
-            <groupId>xerces</groupId>
-          </exclusion>
-          <exclusion>
-            <artifactId>xml-apis</artifactId>
-            <groupId>xml-apis</groupId>
-          </exclusion>
-        </exclusions>
-      </dependency>
-
       <!-- application cache dependencies -->
       <dependency>
         <groupId>net.sf.ehcache</groupId>
