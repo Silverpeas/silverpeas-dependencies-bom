@@ -175,6 +175,28 @@
         <groupId>org.apache.lucene</groupId>
         <artifactId>lucene-suggest</artifactId>
         <version>${lucene.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>org.apache.lucene</groupId>
+            <artifactId>lucene-queries</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.apache.lucene</groupId>
+            <artifactId>lucene-analyzers-common</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.lucene</groupId>
+        <artifactId>lucene-queries</artifactId>
+        <version>${lucene.version}</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.lucene</groupId>
+        <artifactId>lucene-analyzers-common</artifactId>
+        <version>${lucene.version}</version>
+        <scope>provided</scope>
       </dependency>
       <!-- USED BY OUR INDEX ENGINE TO PARSE DOCUMENT CONTENTS
        TODO: check we can omit them Lucene can parse any document content with a recent version of Tika -->
@@ -345,10 +367,6 @@
             <groupId>org.springframework.social</groupId>
             <artifactId>spring-social-web</artifactId>
           </exclusion>
-          <exclusion>
-            <groupId>org.springframework.social</groupId>
-            <artifactId>spring-web</artifactId>
-          </exclusion>
         </exclusions>
       </dependency>
       <dependency>
@@ -375,10 +393,6 @@
           <exclusion>
             <groupId>org.springframework.social</groupId>
             <artifactId>spring-social-web</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.springframework.social</groupId>
-            <artifactId>spring-web</artifactId>
           </exclusion>
         </exclusions>
       </dependency>
@@ -655,10 +669,12 @@
           </exclusion>
         </exclusions>
       </dependency>
+      <!-- provided by Wildfly -->
       <dependency>
         <groupId>commons-io</groupId>
         <artifactId>commons-io</artifactId>
-        <version>2.6</version>
+        <version>2.4</version>
+        <scope>provided</scope>
       </dependency>
       <dependency>
         <!-- provided by Wildfly -->
@@ -780,6 +796,10 @@
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-jaxrs</artifactId>
           </exclusion>
+          <exclusion>
+            <groupId>org.jboss.logging</groupId>
+            <artifactId>jboss-logging</artifactId>
+          </exclusion>
         </exclusions>
       </dependency>
 
@@ -824,7 +844,7 @@
     <!-- WARNING: the tika version must be equal to the one on which depends Silverpeas-Jackrabbit-JCA -->
     <tika.version>1.16</tika.version>
     <owasp.version>1.2.1</owasp.version>
-    <resteasy.version>3.1.4.Final</resteasy.version>
+    <resteasy.version>3.0.19.Final</resteasy.version>
   </properties>
 
 </project>
