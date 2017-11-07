@@ -158,21 +158,22 @@
         <scope>provided</scope>
       </dependency>
 
-      <!-- Lucene dependencies
-      TODO: update the existing code to use the more recent lucene framework (currently 4.10) -->
+      <!-- Lucene dependencies: the core and the query parser are provided by Wildfly -->
       <dependency>
         <groupId>org.apache.lucene</groupId>
         <artifactId>lucene-core</artifactId>
         <version>${lucene.version}</version>
+        <scope>provided</scope>
       </dependency>
       <dependency>
         <groupId>org.apache.lucene</groupId>
-        <artifactId>lucene-analyzers</artifactId>
+        <artifactId>lucene-queryparser</artifactId>
         <version>${lucene.version}</version>
+        <scope>provided</scope>
       </dependency>
       <dependency>
         <groupId>org.apache.lucene</groupId>
-        <artifactId>lucene-spellchecker</artifactId>
+        <artifactId>lucene-suggest</artifactId>
         <version>${lucene.version}</version>
       </dependency>
       <!-- USED BY OUR INDEX ENGINE TO PARSE DOCUMENT CONTENTS
@@ -818,7 +819,7 @@
     <bouncycastle.version>1.52</bouncycastle.version>
     <jackrabbit.version>2.14.4</jackrabbit.version>
     <slf4j.version>1.7.25</slf4j.version>
-    <lucene.version>3.6.2</lucene.version>
+    <lucene.version>5.3.1</lucene.version>
     <poi.version>3.17</poi.version>
     <!-- WARNING: the tika version must be equal to the one on which depends Silverpeas-Jackrabbit-JCA -->
     <tika.version>1.16</tika.version>
