@@ -175,16 +175,7 @@
         <groupId>org.apache.lucene</groupId>
         <artifactId>lucene-suggest</artifactId>
         <version>${lucene.version}</version>
-        <exclusions>
-          <exclusion>
-            <groupId>org.apache.lucene</groupId>
-            <artifactId>lucene-queries</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.apache.lucene</groupId>
-            <artifactId>lucene-analyzers-common</artifactId>
-          </exclusion>
-        </exclusions>
+        <scope>provided</scope>
       </dependency>
       <dependency>
         <groupId>org.apache.lucene</groupId>
@@ -839,7 +830,7 @@
     <bouncycastle.version>1.52</bouncycastle.version>
     <jackrabbit.version>2.14.4</jackrabbit.version>
     <slf4j.version>1.7.25</slf4j.version>
-    <lucene.version>5.3.1</lucene.version>
+    <lucene.version>7.1.0</lucene.version>
     <poi.version>3.17</poi.version>
     <!-- WARNING: the tika version must be equal to the one on which depends Silverpeas-Jackrabbit-JCA -->
     <tika.version>1.16</tika.version>
