@@ -158,22 +158,36 @@
         <scope>provided</scope>
       </dependency>
 
-      <!-- Lucene dependencies
-      TODO: update the existing code to use the more recent lucene framework (currently 4.10) -->
+      <!-- Lucene dependencies: the core and the query parser are provided by Wildfly -->
       <dependency>
         <groupId>org.apache.lucene</groupId>
         <artifactId>lucene-core</artifactId>
         <version>${lucene.version}</version>
+        <scope>provided</scope>
       </dependency>
       <dependency>
         <groupId>org.apache.lucene</groupId>
-        <artifactId>lucene-analyzers</artifactId>
+        <artifactId>lucene-queryparser</artifactId>
         <version>${lucene.version}</version>
+        <scope>provided</scope>
       </dependency>
       <dependency>
         <groupId>org.apache.lucene</groupId>
-        <artifactId>lucene-spellchecker</artifactId>
+        <artifactId>lucene-suggest</artifactId>
         <version>${lucene.version}</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.lucene</groupId>
+        <artifactId>lucene-queries</artifactId>
+        <version>${lucene.version}</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.lucene</groupId>
+        <artifactId>lucene-analyzers-common</artifactId>
+        <version>${lucene.version}</version>
+        <scope>provided</scope>
       </dependency>
       <!-- USED BY OUR INDEX ENGINE TO PARSE DOCUMENT CONTENTS
        TODO: check we can omit them Lucene can parse any document content with a recent version of Tika -->
@@ -344,10 +358,6 @@
             <groupId>org.springframework.social</groupId>
             <artifactId>spring-social-web</artifactId>
           </exclusion>
-          <exclusion>
-            <groupId>org.springframework.social</groupId>
-            <artifactId>spring-web</artifactId>
-          </exclusion>
         </exclusions>
       </dependency>
       <dependency>
@@ -374,10 +384,6 @@
           <exclusion>
             <groupId>org.springframework.social</groupId>
             <artifactId>spring-social-web</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.springframework.social</groupId>
-            <artifactId>spring-web</artifactId>
           </exclusion>
         </exclusions>
       </dependency>
@@ -654,10 +660,12 @@
           </exclusion>
         </exclusions>
       </dependency>
+      <!-- provided by Wildfly -->
       <dependency>
         <groupId>commons-io</groupId>
         <artifactId>commons-io</artifactId>
-        <version>2.6</version>
+        <version>2.4</version>
+        <scope>provided</scope>
       </dependency>
       <dependency>
         <!-- provided by Wildfly -->
@@ -779,6 +787,10 @@
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-jaxrs</artifactId>
           </exclusion>
+          <exclusion>
+            <groupId>org.jboss.logging</groupId>
+            <artifactId>jboss-logging</artifactId>
+          </exclusion>
         </exclusions>
       </dependency>
 
@@ -818,12 +830,12 @@
     <bouncycastle.version>1.52</bouncycastle.version>
     <jackrabbit.version>2.14.4</jackrabbit.version>
     <slf4j.version>1.7.25</slf4j.version>
-    <lucene.version>3.6.2</lucene.version>
+    <lucene.version>7.1.0</lucene.version>
     <poi.version>3.17</poi.version>
     <!-- WARNING: the tika version must be equal to the one on which depends Silverpeas-Jackrabbit-JCA -->
     <tika.version>1.16</tika.version>
     <owasp.version>1.2.1</owasp.version>
-    <resteasy.version>3.1.4.Final</resteasy.version>
+    <resteasy.version>3.0.19.Final</resteasy.version>
   </properties>
 
 </project>
