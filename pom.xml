@@ -266,6 +266,10 @@
         <scope>provided</scope>
         <exclusions>
           <exclusion>
+            <groupId>com.drewnoakes</groupId>
+            <artifactId>metadata-extractor</artifactId>
+          </exclusion>
+          <exclusion>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
           </exclusion>
@@ -515,8 +519,8 @@
         <scope>runtime</scope>
       </dependency>
 
-      <!-- The specified version is the one specified into pom.xml of
-      tika-parsers artifact. So when upgrading tika libraries, upgrading this one too! -->
+      <!-- the current version of tika-parser depends on a different version of it, so we
+       explicitly declare it as we use it in Gallery -->
       <dependency>
         <groupId>com.drewnoakes</groupId>
         <artifactId>metadata-extractor</artifactId>
