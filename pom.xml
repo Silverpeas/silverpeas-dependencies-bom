@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-    Copyright (C) 2000 - 2017 Silverpeas
+    Copyright (C) 2000 - 2018 Silverpeas
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -402,7 +402,7 @@
       <dependency>
         <groupId>org.silverpeas.jcr</groupId>
         <artifactId>access-control</artifactId>
-        <version>1.0-build180123</version>
+        <version>${jcr.accesscontrol.version}</version>
         <scope>provided</scope>
       </dependency>
       <dependency>
@@ -778,7 +778,7 @@
       <dependency>
         <groupId>com.ibm.icu</groupId>
         <artifactId>icu4j</artifactId>
-        <version>4.4</version>
+        <version>60.2</version>
       </dependency>
 
       <!-- resteasy-html API -->
@@ -851,6 +851,7 @@
     <owasp.version>1.2.1</owasp.version>
     <resteasy.version>3.0.19.Final</resteasy.version>
     <hibernate.version>5.0.10.Final</hibernate.version>
+    <jcr.accesscontrol.version>1.0</jcr.accesscontrol.version>
   </properties>
 
 </project>
