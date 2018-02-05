@@ -392,6 +392,55 @@
         </exclusions>
       </dependency>
 
+      <!-- SCIM 2.0 dependencies -->
+      <dependency>
+        <groupId>edu.psu.swe.scim</groupId>
+        <artifactId>scim-server-common</artifactId>
+        <version>2.20</version>
+        <exclusions>
+          <exclusion>
+            <groupId>com.fasterxml.jackson.jaxrs</groupId>
+            <artifactId>jackson-jaxrs-json-provider</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-client</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-jackson-provider</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>pl.pragmatists</groupId>
+            <artifactId>JUnitParams</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-jaxrs</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>com.flipkart.zjsonpatch</groupId>
+            <artifactId>zjsonpatch</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+
       <!-- JCR dependencies: provided by Jackrabbit JCA -->
       <dependency>
         <groupId>javax.jcr</groupId>
