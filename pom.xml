@@ -891,16 +891,16 @@
     <maven.compiler.target>1.8</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <bouncycastle.version>1.52</bouncycastle.version>
-    <jackrabbit.version>2.16.1</jackrabbit.version>
+    <jackrabbit.version>2.16.2</jackrabbit.version>
     <slf4j.version>1.7.25</slf4j.version>
     <lucene.version>7.1.0</lucene.version>
     <poi.version>3.17</poi.version>
     <!-- WARNING: the tika version must be equal to the one on which depends Silverpeas-Jackrabbit-JCA -->
-    <tika.version>1.16</tika.version>
+    <tika.version>1.18</tika.version>
     <owasp.version>1.2.1</owasp.version>
     <resteasy.version>3.0.19.Final</resteasy.version>
     <hibernate.version>5.0.10.Final</hibernate.version>
-    <jcr.accesscontrol.version>1.1</jcr.accesscontrol.version>
+    <jcr.accesscontrol.version>1.1.1</jcr.accesscontrol.version>
   </properties>
 
 </project>
