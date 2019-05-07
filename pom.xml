@@ -493,7 +493,18 @@
             <groupId>com.flipkart.zjsonpatch</groupId>
             <artifactId>zjsonpatch</artifactId>
           </exclusion>
+          <exclusion>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+          </exclusion>
         </exclusions>
+      </dependency>
+
+      <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>1.18.6</version>
+        <scope>runtime</scope>
       </dependency>
 
       <!-- JCR dependencies. Provided by Jackrabbit JCA -->
