@@ -871,8 +871,8 @@
     <tika.version>1.20</tika.version>
     <bouncycastle.version>1.60</bouncycastle.version>
     <poi.version>4.0.1</poi.version>
-    <jackrabbit.version>2.18.1</jackrabbit.version>
-    <jcr.accesscontrol.version>1.2-build190503</jcr.accesscontrol.version>
+    <jackrabbit.version>2.18.2</jackrabbit.version>
+    <jcr.accesscontrol.version>1.2-build190617</jcr.accesscontrol.version>
   </properties>
 
 </project>
