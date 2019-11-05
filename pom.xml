@@ -866,7 +866,7 @@
     <hibernate.version>5.3.7.Final</hibernate.version>
     <!-- WARNING: jackson-databind has a different version as it is touched by a security
     vulnerability detected in its version 2.9.9 -->
-    <jackson-version>2.9.10</jackson-version>
+    <jackson-version>2.10.0</jackson-version>
     <lucene.version>7.1.0</lucene.version>
     <!-- WARNING: the following dependencies version must be equal to the one on which depends
          Silverpeas-Jackrabbit-JCA as they are provided by it -->
