@@ -872,7 +872,7 @@
     <bouncycastle.version>1.60</bouncycastle.version>
     <poi.version>4.0.1</poi.version>
     <jackrabbit.version>2.18.2</jackrabbit.version>
-    <jcr.accesscontrol.version>1.3-build191120</jcr.accesscontrol.version>
+    <jcr.accesscontrol.version>1.3-build191121</jcr.accesscontrol.version>
   </properties>
 
 </project>
