@@ -624,8 +624,8 @@
         <exclusions>
            <!-- antlr is provided by Wildfly -->
           <exclusion>
-            <groupId>org.antlr</groupId>
-            <artifactId>antlr-runtime</artifactId>
+            <groupId>antlr</groupId>
+            <artifactId>antlr</artifactId>
           </exclusion>
         </exclusions>
       </dependency>
