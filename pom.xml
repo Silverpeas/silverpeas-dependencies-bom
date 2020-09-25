@@ -65,7 +65,7 @@
       match the version embedded with the version of Wildfly used by Silverpeas.
     -->
     <dependencies>
-      <!-- JEE 7 dependencies. Provided by Wildfly -->
+      <!-- JEE 8 dependencies. Provided by Wildfly -->
       <dependency>
         <groupId>javax</groupId>
         <artifactId>javaee-api</artifactId>
@@ -76,6 +76,18 @@
         <groupId>javax.servlet.jsp.jstl</groupId>
         <artifactId>javax.servlet.jsp.jstl-api</artifactId>
         <version>1.2.2</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.cxf</groupId>
+        <artifactId>cxf-rt-frontend-jaxws</artifactId>
+        <version>3.3.3</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.cxf</groupId>
+        <artifactId>cxf-rt-transports-http</artifactId>
+        <version>3.3.3</version>
         <scope>provided</scope>
       </dependency>
       <dependency>
