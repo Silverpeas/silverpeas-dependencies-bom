@@ -894,7 +894,7 @@
     <!-- WARNING: the following dependencies version must be equal to the one provided by Wildfly -->
     <resteasy.version>3.11.2.Final</resteasy.version>
     <hibernate.version>5.3.17.Final</hibernate.version>
-    <jackson-version>2.10.3</jackson-version>
+    <jackson-version>2.12.1</jackson-version>
     <lucene.version>7.1.0</lucene.version>
     <!-- WARNING: the following dependencies version must be equal to the one on which depends
          Silverpeas-Jackrabbit-JCA as they are provided by it -->
