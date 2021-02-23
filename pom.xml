@@ -30,7 +30,7 @@
 
   <groupId>org.silverpeas</groupId>
   <artifactId>silverpeas-dependencies-bom</artifactId>
-  <version>1.5-SNAPSHOT</version>
+  <version>1.5-improve-it</version>
   <packaging>pom</packaging>
   <name>Silverpeas Dependencies BOM</name>
   <description>A BOM with all the dependencies required to build and run Silverpeas</description>
