@@ -30,7 +30,7 @@
 
   <groupId>org.silverpeas</groupId>
   <artifactId>silverpeas-dependencies-bom</artifactId>
-  <version>1.5-improve-it</version>
+  <version>1.5-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Silverpeas Dependencies BOM</name>
   <description>A BOM with all the dependencies required to build and run Silverpeas</description>
@@ -643,7 +643,7 @@
       <dependency>
         <groupId>org.postgresql</groupId>
         <artifactId>postgresql</artifactId>
-        <version>42.2.14</version>
+        <version>42.2.19</version>
       </dependency>
       <dependency>
         <groupId>net.sourceforge.jtds</groupId>
