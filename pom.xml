@@ -556,7 +556,7 @@
       <dependency>
         <groupId>org.mnode.ical4j</groupId>
         <artifactId>ical4j</artifactId>
-        <version>3.0.19</version>
+        <version>3.0.25</version>
         <exclusions>
           <exclusion>
             <groupId>com.sun.mail</groupId>
@@ -643,7 +643,7 @@
       <dependency>
         <groupId>org.postgresql</groupId>
         <artifactId>postgresql</artifactId>
-        <version>42.2.14</version>
+        <version>42.2.19</version>
       </dependency>
       <dependency>
         <groupId>net.sourceforge.jtds</groupId>
