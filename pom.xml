@@ -25,7 +25,9 @@
 
 -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.silverpeas</groupId>
@@ -228,7 +230,7 @@
       <dependency>
         <groupId>org.apache.pdfbox</groupId>
         <artifactId>pdfbox-tools</artifactId>
-        <version>2.0.23</version>
+        <version>2.0.24</version>
         <scope>provided</scope>
       </dependency>
       <dependency>
@@ -326,6 +328,10 @@
         <version>2.22.4</version>
         <exclusions>
           <exclusion>
+            <groupId>edu.psu.swe.commons</groupId>
+            <artifactId>commons-jaxrs</artifactId>
+          </exclusion>
+          <exclusion>
             <groupId>javax.mail</groupId>
             <artifactId>javax.mail-api</artifactId>
           </exclusion>
@@ -384,6 +390,38 @@
           <exclusion>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+
+      <dependency>
+        <groupId>edu.psu.swe.commons</groupId>
+        <artifactId>commons-jaxrs</artifactId>
+        <version>1.41.0</version>
+        <exclusions>
+          <exclusion>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>com.fasterxml.jackson.module</groupId>
+            <artifactId>jackson-module-jaxb-annotations</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>javax.mail</groupId>
+            <artifactId>javax.mail-api</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
           </exclusion>
         </exclusions>
       </dependency>
@@ -936,18 +974,18 @@
     <maven.compiler.release>11</maven.compiler.release>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <owasp.version>1.2.3</owasp.version>
-    <slf4j.version>1.7.30</slf4j.version>
     <!-- WARNING: the following dependencies version must be equal to the one provided by Wildfly -->
+    <slf4j.version>1.7.30</slf4j.version>
     <resteasy.version>3.15.1.Final</resteasy.version>
     <hibernate.version>5.3.20.Final</hibernate.version>
     <jackson-version>2.12.1</jackson-version>
     <lucene.version>7.1.0</lucene.version>
     <!-- WARNING: the following dependencies version must be equal to the one on which depends
          Silverpeas-Jackrabbit-JCA as they are provided by it -->
-    <tika.version>1.26</tika.version>
-    <bouncycastle.version>1.68</bouncycastle.version>
+    <tika.version>1.27</tika.version>
+    <bouncycastle.version>1.69</bouncycastle.version>
     <poi.version>4.1.2</poi.version>
-    <jackrabbit.version>2.20.2</jackrabbit.version>
+    <jackrabbit.version>2.20.3</jackrabbit.version>
     <jcr.accesscontrol.version>1.4</jcr.accesscontrol.version>
   </properties>
 
