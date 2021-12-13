@@ -30,7 +30,7 @@
 
   <groupId>org.silverpeas</groupId>
   <artifactId>silverpeas-dependencies-bom</artifactId>
-  <version>1.4</version>
+  <version>1.4.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Silverpeas Dependencies BOM</name>
   <description>A BOM with all the dependencies required to build and run Silverpeas</description>
@@ -41,7 +41,7 @@
     <developerConnection>scm:git:git@github.com:Silverpeas/silverpeas-dependencies-bom.git
     </developerConnection>
     <url>https://gitub.com/Silverpeas/silverpeas-dependencies-bom.git</url>
-    <tag>1.4</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <distributionManagement>
@@ -544,7 +544,7 @@
       <dependency>
         <groupId>org.apache.logging.log4j</groupId>
         <artifactId>log4j-core</artifactId>
-        <version>2.13.3</version>
+        <version>${log4j.version}</version>
       </dependency>
       <dependency>
         <groupId>commons-logging</groupId>
@@ -819,9 +819,9 @@
       <!-- API for generating PDF documents
           TODO: is there a way to remove its use? -->
       <dependency>
-        <groupId>com.lowagie</groupId>
-        <artifactId>itext</artifactId>
-        <version>2.1.7</version>
+        <groupId>com.itextpdf</groupId>
+        <artifactId>itextpdf</artifactId>
+        <version>5.5.13.2</version>
         <exclusions>
           <exclusion>
             <groupId>bouncycastle</groupId>
@@ -890,8 +890,9 @@
     <maven.compiler.release>11</maven.compiler.release>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <owasp.version>1.2.2</owasp.version>
-    <slf4j.version>1.7.29</slf4j.version>
     <!-- WARNING: the following dependencies version must be equal to the one provided by Wildfly -->
+    <slf4j.version>1.7.32</slf4j.version>
+    <log4j.version>2.15.0</log4j.version>
     <resteasy.version>3.11.2.Final</resteasy.version>
     <hibernate.version>5.3.17.Final</hibernate.version>
     <jackson-version>2.10.3</jackson-version>
