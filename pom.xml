@@ -1096,7 +1096,7 @@
          Silverpeas-Jackrabbit-JCA as they are provided by it -->
     <tika.version>1.28.1</tika.version>
     <bouncycastle.version>1.69</bouncycastle.version>
-    <poi.version>4.1.2</poi.version>
+    <poi.version>5.2.1</poi.version>
     <jackrabbit.version>2.20.4</jackrabbit.version>
     <jcr.accesscontrol.version>1.4</jcr.accesscontrol.version>
   </properties>
