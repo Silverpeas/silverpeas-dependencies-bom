@@ -212,57 +212,145 @@
         <artifactId>jericho-html</artifactId>
         <version>3.4</version>
       </dependency>
-      <!-- The following content parsing dependencies are all provided by Jackrabbit JCA. They are
-       transitive dependencies of Tika but we use explicitly some of them (like in the mail's
-       attachments extractor or in the component Gallery) -->
+
+      <!-- The following content parsing dependencies are all provided by Tika, but we use explicitly
+       some of them (like in the mail's attachments extractor or in the component Gallery) so we
+       explicitly declare them to control any possible change -->
       <dependency>
         <groupId>com.drewnoakes</groupId>
         <artifactId>metadata-extractor</artifactId>
         <version>2.18.0</version>
-        <scope>provided</scope>
       </dependency>
       <dependency>
         <groupId>org.apache.pdfbox</groupId>
         <artifactId>pdfbox</artifactId>
         <version>2.0.26</version>
-        <scope>provided</scope>
       </dependency>
       <dependency>
         <groupId>org.apache.pdfbox</groupId>
         <artifactId>pdfbox-tools</artifactId>
         <version>2.0.26</version>
-        <scope>provided</scope>
       </dependency>
       <dependency>
         <groupId>org.apache.poi</groupId>
         <artifactId>poi</artifactId>
         <version>${poi.version}</version>
-        <scope>provided</scope>
       </dependency>
       <dependency>
         <groupId>org.apache.poi</groupId>
         <artifactId>poi-scratchpad</artifactId>
         <version>${poi.version}</version>
-        <scope>provided</scope>
       </dependency>
       <dependency>
         <groupId>org.apache.poi</groupId>
         <artifactId>poi-ooxml</artifactId>
         <version>${poi.version}</version>
-        <scope>provided</scope>
       </dependency>
       <!-- Tika dependencies -->
       <dependency>
         <groupId>org.apache.tika</groupId>
         <artifactId>tika-core</artifactId>
         <version>${tika.version}</version>
-        <scope>provided</scope>
       </dependency>
       <dependency>
         <groupId>org.apache.tika</groupId>
         <artifactId>tika-parsers-standard-package</artifactId>
         <version>${tika.version}</version>
-        <scope>provided</scope>
+        <!-- we exclude all for which Silverpeas depends on them explicitly -->
+        <exclusions>
+          <exclusion>
+            <groupId>org.apache.tika</groupId>
+            <artifactId>tika-core</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.apache.pdfbox</groupId>
+            <artifactId>pdfbox</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.apache.pdfbox</groupId>
+            <artifactId>pdfbox-tools</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-scratchpad</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>de.l3s.boilerpipe</groupId>
+            <artifactId>boilerpipe</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>com.drewnoakes</groupId>
+            <artifactId>metadata-extractor</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-compress</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-codec</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-exec</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>com.rometools</groupId>
+            <artifactId>rome</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcmail-jdk15on</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk15on</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>xerces</groupId>
+            <artifactId>xercesImpl</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-runtime</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jul-to-slf4j </artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+          </exclusion>
+        </exclusions>
       </dependency>
 
       <!-- Spring Social dependencies -->
@@ -272,15 +360,15 @@
         <version>1.0.2.RELEASE</version>
         <exclusions>
           <exclusion>
-            <groupId>com.fasterxml.jackson.core </groupId>
+            <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
           </exclusion>
           <exclusion>
-            <groupId>com.fasterxml.jackson.core </groupId>
+            <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
           </exclusion>
           <exclusion>
-            <groupId>com.fasterxml.jackson.core </groupId>
+            <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
           </exclusion>
           <exclusion>
@@ -299,15 +387,15 @@
         <version>2.0.3.RELEASE</version>
         <exclusions>
           <exclusion>
-            <groupId>com.fasterxml.jackson.core </groupId>
+            <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
           </exclusion>
           <exclusion>
-            <groupId>com.fasterxml.jackson.core </groupId>
+            <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
           </exclusion>
           <exclusion>
-            <groupId>com.fasterxml.jackson.core </groupId>
+            <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
           </exclusion>
           <exclusion>
@@ -433,50 +521,25 @@
         <scope>runtime</scope>
       </dependency>
 
-      <!-- JCR dependencies. Provided by Jackrabbit JCA -->
-      <dependency>
-        <groupId>javax.jcr</groupId>
-        <artifactId>jcr</artifactId>
-        <version>2.0</version>
-        <scope>provided</scope>
-      </dependency>
+      <!-- JCR  -->
       <dependency>
         <groupId>org.silverpeas.jcr</groupId>
-        <artifactId>access-control</artifactId>
-        <version>${jcr.accesscontrol.version}</version>
-        <scope>provided</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.jackrabbit</groupId>
-        <artifactId>jackrabbit-core</artifactId>
-        <version>${jackrabbit.version}</version>
-        <scope>provided</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.jackrabbit</groupId>
-        <artifactId>jackrabbit-jcr-server</artifactId>
-        <version>${jackrabbit.version}</version>
-        <scope>provided</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.jackrabbit</groupId>
-        <artifactId>jackrabbit-webdav</artifactId>
-        <version>${jackrabbit.version}</version>
-        <scope>provided</scope>
+        <artifactId>silverpeas-jcr</artifactId>
+        <version>1.0-SNAPSHOT</version>
       </dependency>
 
-      <!-- The Bouncy Castle dependencies. Provided by Jackrabbit JCA through Tika -->
+      <!-- The Bouncy Castle dependencies. Provided by Tika -->
       <dependency>
         <groupId>org.bouncycastle</groupId>
         <artifactId>bcprov-jdk15on</artifactId>
         <version>${bouncycastle.version}</version>
-        <scope>provided</scope>
+        <scope>compile</scope>
       </dependency>
       <dependency>
         <groupId>org.bouncycastle</groupId>
         <artifactId>bcmail-jdk15on</artifactId>
         <version>${bouncycastle.version}</version>
-        <scope>provided</scope>
+        <scope>compile</scope>
       </dependency>
 
       <!-- Authentication mechanisms -->
@@ -644,6 +707,14 @@
         </exclusions>
       </dependency>
 
+      <!-- Atom and RSS API -->
+      <dependency>
+        <groupId>com.rometools</groupId>
+        <artifactId>rome</artifactId>
+        <version>1.18.0</version>
+        <scope>compile</scope>
+      </dependency>
+
       <!-- ImageMagick API -->
       <dependency>
         <groupId>org.im4java</groupId>
@@ -657,7 +728,7 @@
         <artifactId>stringtemplate</artifactId>
         <version>3.2.1</version>
         <exclusions>
-           <!-- antlr is provided by Wildfly -->
+          <!-- antlr is provided by Wildfly -->
           <exclusion>
             <groupId>antlr</groupId>
             <artifactId>antlr</artifactId>
@@ -709,36 +780,23 @@
           </exclusion>
         </exclusions>
       </dependency>
-      <!-- Provided by Jackrabbit JCA -->
-      <!-- Atom and RSS API -->
-      <dependency>
-        <groupId>com.rometools</groupId>
-        <artifactId>rome</artifactId>
-        <version>1.18.0</version>
-        <scope>provided</scope>
-      </dependency>
-      <!-- Provided by Jackrabbit JCA -->
       <dependency>
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-collections4</artifactId>
         <version>4.4</version>
-        <scope>provided</scope>
       </dependency>
-      <!-- Provided by Jackrabbit JCA -->
+      <!-- Required by Oak -->
       <dependency>
         <groupId>commons-io</groupId>
         <artifactId>commons-io</artifactId>
         <version>2.11.0</version>
-        <scope>provided</scope>
       </dependency>
-      <!-- Provided by Jackrabbit JCA -->
       <dependency>
         <groupId>commons-codec</groupId>
         <artifactId>commons-codec</artifactId>
         <version>1.15</version>
-        <scope>provided</scope>
       </dependency>
-      <!-- Usually provided by Jackrabbit JCA, but it should be excluded so that we can use our
+      <!-- Usually provided by Tika, but it should be excluded so that we can use our
            own dependency (for classloading issues as SerializationUtils is used by us) -->
       <dependency>
         <groupId>org.apache.commons</groupId>
@@ -748,28 +806,28 @@
       <dependency>
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-text</artifactId>
-        <version>1.8</version>
+        <version>1.9</version>
       </dependency>
-      <!-- Provided by Jackrabbit JCA -->
       <dependency>
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-exec</artifactId>
         <version>1.3</version>
-        <scope>provided</scope>
       </dependency>
-      <!-- Provided by Jackrabbit JCA -->
       <dependency>
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-compress</artifactId>
         <version>1.21</version>
-        <scope>provided</scope>
       </dependency>
-      <!-- Provided by Jackrabbit JCA -->
+      <!-- Required by Jackrabbit WebDAV and by Google APIs -->
       <dependency>
         <groupId>org.apache.httpcomponents</groupId>
         <artifactId>httpclient</artifactId>
         <version>4.5.13</version>
-        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.httpcomponents</groupId>
+        <artifactId>httpcore</artifactId>
+        <version>4.4.15</version>
       </dependency>
       <!-- Unicode and Globalization Support API -->
       <dependency>
@@ -1130,13 +1188,11 @@
     <hibernate.version>5.3.24.Final</hibernate.version>
     <jackson-version>2.12.6</jackson-version>
     <lucene.version>7.1.0</lucene.version>
-    <!-- WARNING: the following dependencies' version must be equal to the one on which depends
-         Silverpeas-Jackrabbit-JCA as they are provided by it -->
     <tika.version>2.4.0</tika.version>
     <bouncycastle.version>1.70</bouncycastle.version>
     <poi.version>5.2.2</poi.version>
-    <jackrabbit.version>2.20.5</jackrabbit.version>
-    <jcr.accesscontrol.version>1.4</jcr.accesscontrol.version>
+    <!-- version of Netty to be used by Oak instead of its own dependencies on this framework -->
+    <netty.version>4.1.78.Final</netty.version>
   </properties>
 
 </project>
