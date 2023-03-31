@@ -522,10 +522,197 @@
       </dependency>
 
       <!-- JCR  -->
+      <!-- JCR API -->
       <dependency>
-        <groupId>org.silverpeas.jcr</groupId>
-        <artifactId>silverpeas-jcr</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <groupId>javax.jcr</groupId>
+        <artifactId>jcr</artifactId>
+        <version>2.0</version>
+        <scope>compile</scope>
+      </dependency>
+      <!-- Oak implementation of the JCR -->
+      <dependency>
+        <groupId>org.apache.jackrabbit</groupId>
+        <artifactId>oak-jcr</artifactId>
+        <version>${oak.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.apache.sling</groupId>
+            <artifactId>org.apache.sling.testing.osgi-mock</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <!-- Required by Oak -->
+      <dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        <version>2.11.0</version>
+      </dependency>
+      <dependency>
+        <groupId>commons-codec</groupId>
+        <artifactId>commons-codec</artifactId>
+        <version>1.15</version>
+      </dependency>
+      <!-- the filesystem storage backend for Oak -->
+      <dependency>
+        <groupId>org.apache.jackrabbit</groupId>
+        <artifactId>oak-segment-tar</artifactId>
+        <version>${oak.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-buffer</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-codec</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-common</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-handler</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-resolver</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-transport</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>io.dropwizard.metrics</groupId>
+        <artifactId>metrics-core</artifactId>
+        <version>3.2.6</version>
+      </dependency>
+      <!-- the document-based datasource storage backend for Oak -->
+      <dependency>
+        <groupId>org.apache.jackrabbit</groupId>
+        <artifactId>oak-store-document</artifactId>
+        <version>${oak.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <!-- MongoDB to be used as a document-base datasource for Oak -->
+      <dependency>
+        <groupId>org.mongodb</groupId>
+        <artifactId>mongo-java-driver</artifactId>
+        <version>${mongo.driver.version}</version>
+      </dependency>
+      <!-- Netty required by Oak (an asynchronous event-driven network application framework) -->
+      <dependency>
+        <groupId>io.netty</groupId>
+        <artifactId>netty-buffer</artifactId>
+        <version>${netty.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.netty</groupId>
+        <artifactId>netty-codec</artifactId>
+        <version>${netty.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.netty</groupId>
+        <artifactId>netty-common</artifactId>
+        <version>${netty.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.netty</groupId>
+        <artifactId>netty-handler</artifactId>
+        <version>${netty.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.netty</groupId>
+        <artifactId>netty-resolver</artifactId>
+        <version>${netty.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.netty</groupId>
+        <artifactId>netty-transport</artifactId>
+        <version>${netty.version}</version>
+      </dependency>
+      <!-- Jackrabbit WebDAV facilities to access JCR through WebDAV -->
+      <dependency>
+        <groupId>org.apache.jackrabbit</groupId>
+        <artifactId>jackrabbit-jcr-server</artifactId>
+        <version>${jackrabbit.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.apache.tika</groupId>
+            <artifactId>tika-core</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpcore</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+          </exclusion>
+        </exclusions>
       </dependency>
 
       <!-- The Bouncy Castle dependencies. Provided by Tika -->
@@ -792,17 +979,6 @@
         <groupId>commons-validator</groupId>
         <artifactId>commons-validator</artifactId>
         <version>1.7</version>
-      </dependency>
-      <!-- Required by Oak -->
-      <dependency>
-        <groupId>commons-io</groupId>
-        <artifactId>commons-io</artifactId>
-        <version>2.11.0</version>
-      </dependency>
-      <dependency>
-        <groupId>commons-codec</groupId>
-        <artifactId>commons-codec</artifactId>
-        <version>1.15</version>
       </dependency>
       <!-- Usually provided by Tika, but it should be excluded so that we can use our
            own dependency (for classloading issues as SerializationUtils is used by us) -->
@@ -1199,6 +1375,12 @@
     <tika.version>2.6.0</tika.version>
     <bouncycastle.version>1.70</bouncycastle.version>
     <poi.version>5.2.3</poi.version>
+    <oak.version>1.48.0</oak.version>
+    <!-- version of Netty to be used by Oak instead of its own dependencies on this framework -->
+    <netty.version>4.1.87.Final</netty.version>
+    <!-- version of JackRabbit for the WebDAV support -->
+    <jackrabbit.version>2.20.8</jackrabbit.version>
+    <mongo.driver.version>3.12.11</mongo.driver.version>
   </properties>
 
 </project>
