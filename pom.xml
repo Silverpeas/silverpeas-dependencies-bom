@@ -1376,7 +1376,7 @@
     <!-- END WARNING -->
     <tika.version>2.7.0</tika.version>
     <poi.version>5.2.3</poi.version>
-    <oak.version>1.50.0</oak.version>
+    <oak.version>1.52.0</oak.version>
     <!-- version of Netty to be used by Oak instead of its own dependencies on this framework -->
     <netty.version>4.1.92.Final</netty.version>
     <!-- version of JackRabbit for the WebDAV support -->
