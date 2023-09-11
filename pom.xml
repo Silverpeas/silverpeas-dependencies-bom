@@ -325,62 +325,6 @@
         </exclusions>
       </dependency>
 
-      <!-- Spring Social dependencies -->
-      <dependency>
-        <groupId>org.springframework.social</groupId>
-        <artifactId>spring-social-linkedin</artifactId>
-        <version>1.0.2.RELEASE</version>
-        <exclusions>
-          <exclusion>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-core</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-annotations</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.springframework.social</groupId>
-            <artifactId>spring-social-config</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.springframework.social</groupId>
-            <artifactId>spring-social-web</artifactId>
-          </exclusion>
-        </exclusions>
-      </dependency>
-      <dependency>
-        <groupId>org.springframework.social</groupId>
-        <artifactId>spring-social-facebook</artifactId>
-        <version>2.0.3.RELEASE</version>
-        <exclusions>
-          <exclusion>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-core</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-annotations</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.springframework.social</groupId>
-            <artifactId>spring-social-config</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.springframework.social</groupId>
-            <artifactId>spring-social-web</artifactId>
-          </exclusion>
-        </exclusions>
-      </dependency>
-
       <!-- SCIM dependencies -->
       <dependency>
         <groupId>edu.psu.swe.scim</groupId>
@@ -755,22 +699,26 @@
         <scope>runtime</scope>
       </dependency>
 
-      <!-- Logging APIs used in several dependencies -->
+      <!-- Logging APIs used in several dependencies and provided by Wildfly-->
       <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-api</artifactId>
         <version>${slf4j.version}</version>
+        <scope>provided</scope>
       </dependency>
       <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>jcl-over-slf4j</artifactId>
         <version>${slf4j.version}</version>
+        <scope>provided</scope>
       </dependency>
       <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>jul-to-slf4j</artifactId>
         <version>${slf4j.version}</version>
+        <scope>provided</scope>
       </dependency>
+      <!--
       <dependency>
         <groupId>org.apache.logging.log4j</groupId>
         <artifactId>log4j-slf4j-impl</artifactId>
@@ -786,10 +734,12 @@
           </exclusion>
         </exclusions>
       </dependency>
+      -->
       <dependency>
         <groupId>org.apache.logging.log4j</groupId>
-        <artifactId>log4j-core</artifactId>
+        <artifactId>log4j-api</artifactId>
         <version>${log4j.version}</version>
+        <scope>provided</scope>
       </dependency>
       <dependency>
         <groupId>commons-logging</groupId>
@@ -812,12 +762,8 @@
       <dependency>
         <groupId>org.mnode.ical4j</groupId>
         <artifactId>ical4j</artifactId>
-        <version>3.1.1</version>
+        <version>3.2.12</version>
         <exclusions>
-          <exclusion>
-            <groupId>com.sun.mail</groupId>
-            <artifactId>javax.mail</artifactId>
-          </exclusion>
           <exclusion>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
@@ -833,10 +779,6 @@
           <exclusion>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-collections4</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>biz.aQute.bnd</groupId>
-            <artifactId>bndlib</artifactId>
           </exclusion>
           <exclusion>
             <groupId>commons-validator</groupId>
@@ -1308,10 +1250,10 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <owasp.version>1.2.3</owasp.version>
     <!-- WARNING: the following dependencies version must be equal to the one provided by Wildfly -->
-    <slf4j.version>1.7.36</slf4j.version>
+    <slf4j.version>2.0.7</slf4j.version>
     <log4j.version>2.25.0</log4j.version>
-    <resteasy.version>4.7.7.Final</resteasy.version>
-    <hibernate.version>5.3.28.Final</hibernate.version>
+    <resteasy.version>6.2.5.Final</resteasy.version>
+    <hibernate.version>6.2.6.Final</hibernate.version>
     <jackson-version>2.17.1</jackson-version>
     <bouncycastle.version>1.81</bouncycastle.version>
     <lucene.version>9.12.2</lucene.version>
