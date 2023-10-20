@@ -32,7 +32,7 @@
 
   <groupId>org.silverpeas</groupId>
   <artifactId>silverpeas-dependencies-bom</artifactId>
-  <version>1.6-SNAPSHOT</version>
+  <version>1.6-feature13791</version>
   <packaging>pom</packaging>
   <name>Silverpeas Dependencies BOM</name>
   <description>A BOM with all the dependencies required to build and run Silverpeas</description>
@@ -916,22 +916,8 @@
       <!-- Antlr String Templater -->
       <dependency>
         <groupId>org.antlr</groupId>
-        <artifactId>stringtemplate</artifactId>
-        <version>3.2.1</version>
-        <exclusions>
-          <!-- antlr is provided by Wildfly -->
-          <exclusion>
-            <groupId>antlr</groupId>
-            <artifactId>antlr</artifactId>
-          </exclusion>
-        </exclusions>
-      </dependency>
-      <!-- Antlr is provided by Wildfly -->
-      <dependency>
-        <groupId>antlr</groupId>
-        <artifactId>antlr</artifactId>
-        <version>2.7.7</version>
-        <scope>provided</scope>
+        <artifactId>ST4</artifactId>
+        <version>4.3.4</version>
       </dependency>
 
       <!-- Database dependencies -->
