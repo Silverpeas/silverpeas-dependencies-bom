@@ -1132,10 +1132,10 @@
     <lucene.version>7.1.0</lucene.version>
     <!-- WARNING: the following dependencies' version must be equal to the one on which depends
          Silverpeas-Jackrabbit-JCA as they are provided by it -->
-    <tika.version>2.4.0</tika.version>
+    <tika.version>2.4.1</tika.version>
     <bouncycastle.version>1.70</bouncycastle.version>
     <poi.version>5.2.2</poi.version>
-    <jackrabbit.version>2.20.5</jackrabbit.version>
+    <jackrabbit.version>2.20.14</jackrabbit.version>
     <jcr.accesscontrol.version>1.4</jcr.accesscontrol.version>
   </properties>
 
