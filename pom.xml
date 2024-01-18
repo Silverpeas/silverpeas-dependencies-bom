@@ -1135,7 +1135,7 @@
     <tika.version>2.4.1</tika.version>
     <bouncycastle.version>1.70</bouncycastle.version>
     <poi.version>5.2.2</poi.version>
-    <jackrabbit.version>2.20.5</jackrabbit.version>
+    <jackrabbit.version>2.20.14</jackrabbit.version>
     <jcr.accesscontrol.version>1.4</jcr.accesscontrol.version>
   </properties>
 
