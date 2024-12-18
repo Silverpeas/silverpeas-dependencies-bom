@@ -884,12 +884,18 @@
       <dependency>
         <groupId>org.odftoolkit</groupId>
         <artifactId>simple-odf</artifactId>
-        <version>0.6.6</version>
+        <version>0.9.0</version>
+        <exclusions>
+          <exclusion>
+            <groupId>xerces</groupId>
+            <artifactId>xercesImpl</artifactId>
+          </exclusion>
+        </exclusions>
       </dependency>
       <dependency>
         <groupId>org.jodconverter</groupId>
         <artifactId>jodconverter-local</artifactId>
-        <version>4.4.2</version>
+        <version>4.4.8</version>
         <exclusions>
           <exclusion>
             <groupId>org.slf4j</groupId>
