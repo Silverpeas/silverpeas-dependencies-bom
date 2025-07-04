@@ -1362,7 +1362,7 @@
     <lucene.version>9.12.2</lucene.version>
     <!-- END WARNING -->
     <tika.version>2.7.0</tika.version>
-    <poi.version>5.2.3</poi.version>
+    <poi.version>5.4.0</poi.version>
     <oak.version>1.52.0</oak.version>
     <!-- version of Netty to be used by Oak instead of its own dependencies on this framework -->
     <netty.version>4.1.92.Final</netty.version>
