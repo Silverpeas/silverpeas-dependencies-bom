@@ -240,6 +240,20 @@
         <groupId>org.apache.poi</groupId>
         <artifactId>poi-ooxml</artifactId>
         <version>${poi.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-io</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-compress</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+          </exclusion>
+        </exclusions>
       </dependency>
       <!-- Tika dependencies -->
       <dependency>
@@ -539,10 +553,6 @@
             <artifactId>commons-codec</artifactId>
           </exclusion>
           <exclusion>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-          </exclusion>
-          <exclusion>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
           </exclusion>
@@ -554,14 +564,19 @@
       </dependency>
       <!-- Required by Oak -->
       <dependency>
+        <groupId>org.osgi</groupId>
+        <artifactId>org.osgi.annotation.versioning</artifactId>
+        <version>1.1.2</version>
+      </dependency>
+      <dependency>
         <groupId>commons-io</groupId>
         <artifactId>commons-io</artifactId>
-        <version>2.15.1</version>
+        <version>2.19.0</version>
       </dependency>
       <dependency>
         <groupId>commons-codec</groupId>
         <artifactId>commons-codec</artifactId>
-        <version>1.15</version>
+        <version>1.18.0</version>
       </dependency>
       <!-- the filesystem storage backend for Oak -->
       <dependency>
@@ -569,10 +584,6 @@
         <artifactId>oak-segment-tar</artifactId>
         <version>${oak.version}</version>
         <exclusions>
-          <exclusion>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-          </exclusion>
           <exclusion>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
@@ -614,10 +625,6 @@
         <artifactId>oak-store-document</artifactId>
         <version>${oak.version}</version>
         <exclusions>
-          <exclusion>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-          </exclusion>
           <exclusion>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
@@ -713,13 +720,13 @@
       <!-- The Bouncy Castle dependencies. Provided by Tika -->
       <dependency>
         <groupId>org.bouncycastle</groupId>
-        <artifactId>bcprov-jdk15on</artifactId>
+        <artifactId>bcprov-jdk18on</artifactId>
         <version>${bouncycastle.version}</version>
         <scope>compile</scope>
       </dependency>
       <dependency>
         <groupId>org.bouncycastle</groupId>
-        <artifactId>bcmail-jdk15on</artifactId>
+        <artifactId>bcmail-jdk18on</artifactId>
         <version>${bouncycastle.version}</version>
         <scope>compile</scope>
       </dependency>
@@ -925,7 +932,7 @@
       <dependency>
         <groupId>org.postgresql</groupId>
         <artifactId>postgresql</artifactId>
-        <version>42.5.3</version>
+        <version>42.7.7</version>
       </dependency>
       <dependency>
         <groupId>net.sourceforge.jtds</groupId>
@@ -936,7 +943,7 @@
       <dependency>
         <groupId>com.h2database</groupId>
         <artifactId>h2</artifactId>
-        <version>2.1.214</version>
+        <version>2.2.220</version>
       </dependency>
 
       <!-- Util dependencies -->
@@ -960,7 +967,7 @@
       <dependency>
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-collections4</artifactId>
-        <version>4.4</version>
+        <version>4.5.0</version>
       </dependency>
       <dependency>
         <groupId>commons-validator</groupId>
@@ -972,22 +979,22 @@
       <dependency>
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-lang3</artifactId>
-        <version>3.12.0</version>
+        <version>3.17.0</version>
       </dependency>
       <dependency>
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-text</artifactId>
-        <version>1.10.0</version>
+        <version>1.13.1</version>
       </dependency>
       <dependency>
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-exec</artifactId>
-        <version>1.3</version>
+        <version>1.5.0</version>
       </dependency>
       <dependency>
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-compress</artifactId>
-        <version>1.25.0</version>
+        <version>1.27.1</version>
       </dependency>
       <!-- Required by Jackrabbit WebDAV and by Google APIs -->
       <dependency>
@@ -1031,7 +1038,7 @@
       <dependency>
         <groupId>com.thoughtworks.xstream</groupId>
         <artifactId>xstream</artifactId>
-        <version>1.4.20</version>
+        <version>1.4.21</version>
       </dependency>
       <!-- HTML Parsing API -->
       <dependency>
@@ -1065,20 +1072,6 @@
         <groupId>com.itextpdf</groupId>
         <artifactId>itextpdf</artifactId>
         <version>5.5.13.3</version>
-        <exclusions>
-          <exclusion>
-            <groupId>bouncycastle</groupId>
-            <artifactId>bcmail-jdk14</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>bouncycastle</groupId>
-            <artifactId>bcprov-jdk14</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>bouncycastle</groupId>
-            <artifactId>bctsp-jdk14</artifactId>
-          </exclusion>
-        </exclusions>
       </dependency>
 
       <!-- OWASP encoders of text for security purpose -->
@@ -1354,20 +1347,20 @@
     <owasp.version>1.2.3</owasp.version>
     <!-- WARNING: the following dependencies version must be equal to the one provided by Wildfly -->
     <slf4j.version>1.7.36</slf4j.version>
-    <log4j.version>2.19.0</log4j.version>
+    <log4j.version>2.25.0</log4j.version>
     <resteasy.version>4.7.7.Final</resteasy.version>
     <hibernate.version>5.3.28.Final</hibernate.version>
     <jackson-version>2.17.1</jackson-version>
-    <bouncycastle.version>1.70</bouncycastle.version>
+    <bouncycastle.version>1.81</bouncycastle.version>
     <lucene.version>9.12.2</lucene.version>
     <!-- END WARNING -->
     <tika.version>2.7.0</tika.version>
-    <poi.version>5.2.3</poi.version>
-    <oak.version>1.52.0</oak.version>
+    <poi.version>5.4.1</poi.version>
+    <oak.version>1.82.0</oak.version>
     <!-- version of Netty to be used by Oak instead of its own dependencies on this framework -->
-    <netty.version>4.1.92.Final</netty.version>
+    <netty.version>4.2.2.Final</netty.version>
     <!-- version of JackRabbit for the WebDAV support -->
-    <jackrabbit.version>2.20.10</jackrabbit.version>
+    <jackrabbit.version>2.22.0</jackrabbit.version>
     <mongo.driver.version>3.12.13</mongo.driver.version>
   </properties>
 
