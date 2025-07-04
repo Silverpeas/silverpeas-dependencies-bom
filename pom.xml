@@ -178,31 +178,26 @@
         <groupId>org.apache.lucene</groupId>
         <artifactId>lucene-core</artifactId>
         <version>${lucene.version}</version>
-        <scope>provided</scope>
       </dependency>
       <dependency>
         <groupId>org.apache.lucene</groupId>
         <artifactId>lucene-queryparser</artifactId>
         <version>${lucene.version}</version>
-        <scope>provided</scope>
       </dependency>
       <dependency>
         <groupId>org.apache.lucene</groupId>
         <artifactId>lucene-suggest</artifactId>
         <version>${lucene.version}</version>
-        <scope>provided</scope>
       </dependency>
       <dependency>
         <groupId>org.apache.lucene</groupId>
         <artifactId>lucene-queries</artifactId>
         <version>${lucene.version}</version>
-        <scope>provided</scope>
       </dependency>
       <dependency>
         <groupId>org.apache.lucene</groupId>
-        <artifactId>lucene-analyzers-common</artifactId>
+        <artifactId>lucene-analysis-common</artifactId>
         <version>${lucene.version}</version>
-        <scope>provided</scope>
       </dependency>
 
       <!-- Content parsing dependencies -->
@@ -1364,7 +1359,7 @@
     <hibernate.version>5.3.28.Final</hibernate.version>
     <jackson-version>2.12.7</jackson-version>
     <bouncycastle.version>1.70</bouncycastle.version>
-    <lucene.version>7.1.0</lucene.version>
+    <lucene.version>9.12.2</lucene.version>
     <!-- END WARNING -->
     <tika.version>2.7.0</tika.version>
     <poi.version>5.2.3</poi.version>
