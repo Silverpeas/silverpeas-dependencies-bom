@@ -172,8 +172,7 @@
         <scope>provided</scope>
       </dependency>
 
-      <!-- Lucene dependencies: the core and the query parser are provided by Wildfly (through our
-       onw Wildfly module -->
+      <!-- Lucene dependencies -->
       <dependency>
         <groupId>org.apache.lucene</groupId>
         <artifactId>lucene-core</artifactId>
