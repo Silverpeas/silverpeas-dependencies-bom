@@ -32,7 +32,7 @@
 
   <groupId>org.silverpeas</groupId>
   <artifactId>silverpeas-dependencies-bom</artifactId>
-  <version>1.7-feature13271</version>
+  <version>2.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Silverpeas Dependencies BOM</name>
   <description>A BOM with all the dependencies required to build and run Silverpeas</description>
@@ -74,40 +74,26 @@
         <version>10.0.0</version>
         <scope>provided</scope>
       </dependency>
+      <dependency>
+        <groupId>org.glassfish.web</groupId>
+        <artifactId>jakarta.servlet.jsp.jstl</artifactId>
+        <version>3.0.1</version>
+        <scope>provided</scope>
+      </dependency>
 
       <!-- Portlet dependencies -->
       <dependency>
-        <groupId>javax.portlet</groupId>
-        <artifactId>portlet-api</artifactId>
-        <version>2.0</version>
-      </dependency>
-      <dependency>
-        <groupId>com.sun.portal.portletcontainer</groupId>
-        <artifactId>container</artifactId>
-        <version>2.1</version>
-      </dependency>
-      <dependency>
-        <groupId>com.sun.portal.portletcontainer</groupId>
-        <artifactId>portlet-container</artifactId>
-        <version>2.1</version>
-      </dependency>
-      <dependency>
-        <groupId>javax.ccpp</groupId>
-        <artifactId>ccpp</artifactId>
-        <version>1.0</version>
+        <groupId>org.silverpeas.jakarta</groupId>
+        <artifactId>portlet</artifactId>
+        <version>2.0.0</version>
+        <classifier>jakarta</classifier>
       </dependency>
 
       <!-- Quartz dependencies -->
       <dependency>
         <groupId>org.quartz-scheduler</groupId>
         <artifactId>quartz</artifactId>
-        <version>2.3.2</version>
-        <exclusions>
-          <exclusion>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-          </exclusion>
-        </exclusions>
+        <version>2.5.1</version>
       </dependency>
 
       <!-- Jackson dependencies. Provided by Wildfly -->
@@ -130,10 +116,16 @@
         <scope>provided</scope>
       </dependency>
       <dependency>
-        <groupId>com.fasterxml.jackson.module</groupId>
-        <artifactId>jackson-module-jaxb-annotations</artifactId>
+        <groupId>com.fasterxml.jackson.jakarta.rs</groupId>
+        <artifactId>jackson-jakarta-rs-json-provider</artifactId>
         <version>${jackson-version}</version>
         <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.fasterxml.jackson.module</groupId>
+        <artifactId>jackson-module-jakarta-xmlbind-annotations</artifactId>
+        <version>${jackson-version}</version>
+        <scope>compile</scope>
       </dependency>
 
       <!-- Lucene dependencies -->
@@ -327,82 +319,14 @@
 
       <!-- SCIM dependencies -->
       <dependency>
-        <groupId>edu.psu.swe.scim</groupId>
-        <artifactId>scim-server-common</artifactId>
-        <version>2.22.4</version>
+        <groupId>org.apache.directory.scimple</groupId>
+        <artifactId>scim-server</artifactId>
+        <version>1.0.0-M1</version>
         <exclusions>
           <exclusion>
-            <groupId>edu.psu.swe.commons</groupId>
-            <artifactId>commons-jaxrs</artifactId>
+            <groupId>com.fasterxml.jackson.jakarta.rs</groupId>
+            <artifactId>jackson-jakarta-rs-json-provider</artifactId>
           </exclusion>
-          <exclusion>
-            <groupId>javax.mail</groupId>
-            <artifactId>javax.mail-api</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>javax.xml.bind</groupId>
-            <artifactId>jaxb-api</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>javax.validation</groupId>
-            <artifactId>validation-api</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.bouncycastle</groupId>
-            <artifactId>bcprov-jdk15on</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>com.fasterxml.jackson.jaxrs</groupId>
-            <artifactId>jackson-jaxrs-json-provider</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.jboss.resteasy</groupId>
-            <artifactId>resteasy-client</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.jboss.resteasy</groupId>
-            <artifactId>resteasy-jackson-provider</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>pl.pragmatists</groupId>
-            <artifactId>JUnitParams</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-all</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.assertj</groupId>
-            <artifactId>assertj-core</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>io.swagger</groupId>
-            <artifactId>swagger-jaxrs</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>com.flipkart.zjsonpatch</groupId>
-            <artifactId>zjsonpatch</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-          </exclusion>
-        </exclusions>
-      </dependency>
-
-      <dependency>
-        <groupId>edu.psu.swe.commons</groupId>
-        <artifactId>commons-jaxrs</artifactId>
-        <version>1.41.0</version>
-        <exclusions>
           <exclusion>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
@@ -413,15 +337,11 @@
           </exclusion>
           <exclusion>
             <groupId>com.fasterxml.jackson.module</groupId>
-            <artifactId>jackson-module-jaxb-annotations</artifactId>
+            <artifactId>jackson-module-jakarta-xmlbind-annotations</artifactId>
           </exclusion>
           <exclusion>
-            <groupId>javax</groupId>
-            <artifactId>javaee-api</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>javax.mail</groupId>
-            <artifactId>javax.mail-api</artifactId>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
           </exclusion>
           <exclusion>
             <groupId>org.slf4j</groupId>
@@ -452,6 +372,10 @@
         <version>${oak.version}</version>
         <exclusions>
           <exclusion>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+          </exclusion>
+          <exclusion>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
           </exclusion>
@@ -460,12 +384,16 @@
             <artifactId>commons-codec</artifactId>
           </exclusion>
           <exclusion>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+          </exclusion>
+          <exclusion>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
           </exclusion>
           <exclusion>
             <groupId>org.apache.sling</groupId>
-            <artifactId>org.apache.sling.testing.osgi-mock</artifactId>
+            <artifactId>org.apache.sling.testing.osgi-mock.junit4</artifactId>
           </exclusion>
         </exclusions>
       </dependency>
@@ -478,12 +406,12 @@
       <dependency>
         <groupId>commons-io</groupId>
         <artifactId>commons-io</artifactId>
-        <version>2.19.0</version>
+        <version>2.21.0</version>
       </dependency>
       <dependency>
         <groupId>commons-codec</groupId>
         <artifactId>commons-codec</artifactId>
-        <version>1.18.0</version>
+        <version>1.20.0</version>
       </dependency>
       <!-- the filesystem storage backend for Oak -->
       <dependency>
@@ -494,6 +422,10 @@
           <exclusion>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
           </exclusion>
           <exclusion>
             <groupId>io.netty</groupId>
@@ -553,7 +485,7 @@
       <!-- MongoDB to be used as a document-base datasource for Oak -->
       <dependency>
         <groupId>org.mongodb</groupId>
-        <artifactId>mongo-java-driver</artifactId>
+        <artifactId>mongodb-driver-sync</artifactId>
         <version>${mongo.driver.version}</version>
       </dependency>
       <!-- Netty required by Oak (an asynchronous event-driven network application framework) -->
@@ -592,10 +524,11 @@
         <groupId>org.apache.jackrabbit</groupId>
         <artifactId>jackrabbit-jcr-server</artifactId>
         <version>${jackrabbit.version}</version>
+        <classifier>jakarta</classifier>
         <exclusions>
           <exclusion>
-            <groupId>commons-fileupload</groupId>
-            <artifactId>commons-fileupload</artifactId>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-fileupload2-jakarta-servlet6</artifactId>
           </exclusion>
           <exclusion>
             <groupId>org.apache.tika</groupId>
@@ -653,26 +586,6 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
           </exclusion>
-          <exclusion>
-            <groupId>org.bouncycastle</groupId>
-            <artifactId>bcpkix-jdk15on</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>javax.xml.bind</groupId>
-            <artifactId>jaxb-api</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.glassfish.jaxb</groupId>
-            <artifactId>jaxb-core</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>commons-codec</groupId>
-            <artifactId>commons-codec</artifactId>
-          </exclusion>
         </exclusions>
       </dependency>
 
@@ -680,8 +593,13 @@
       <dependency>
         <groupId>org.ehcache</groupId>
         <artifactId>ehcache</artifactId>
-        <version>3.10.8</version>
+        <version>3.11.1</version>
+        <classifier>jakarta</classifier>
         <exclusions>
+          <exclusion>
+            <groupId>javax.cache</groupId>
+            <artifactId>cache-api</artifactId>
+          </exclusion>
           <exclusion>
             <groupId>org.glassfish.jaxb</groupId>
             <artifactId>jaxb-runtime</artifactId>
@@ -696,7 +614,6 @@
         <groupId>javax.cache</groupId>
         <artifactId>cache-api</artifactId>
         <version>1.1.1</version>
-        <scope>runtime</scope>
       </dependency>
 
       <!-- Logging APIs used in several dependencies and provided by Wildfly-->
@@ -745,12 +662,6 @@
         <groupId>commons-logging</groupId>
         <artifactId>commons-logging</artifactId>
         <version>99.0-does-not-exist</version>
-        <exclusions>
-          <exclusion>
-            <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-          </exclusion>
-        </exclusions>
       </dependency>
       <dependency>
         <groupId>commons-logging</groupId>
@@ -815,8 +726,14 @@
       <dependency>
         <groupId>com.rometools</groupId>
         <artifactId>rome</artifactId>
-        <version>1.18.0</version>
+        <version>2.1.0</version>
         <scope>compile</scope>
+        <exclusions>
+          <exclusion>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+          </exclusion>
+        </exclusions>
       </dependency>
 
       <!-- ImageMagick API -->
@@ -826,7 +743,7 @@
         <version>1.4.0</version>
       </dependency>
 
-      <!-- Antlr String Templater -->
+      <!-- Antlr String Templater with its antlr-runtime dependency -->
       <dependency>
         <groupId>org.antlr</groupId>
         <artifactId>ST4</artifactId>
@@ -837,7 +754,7 @@
       <dependency>
         <groupId>org.postgresql</groupId>
         <artifactId>postgresql</artifactId>
-        <version>42.7.7</version>
+        <version>42.7.8</version>
       </dependency>
       <dependency>
         <groupId>net.sourceforge.jtds</groupId>
@@ -848,8 +765,7 @@
       <dependency>
         <groupId>com.h2database</groupId>
         <artifactId>h2</artifactId>
-        <version>2.2.220</version>
-        <scope>provided</scope>
+        <version>2.2.224</version>
       </dependency>
 
       <!-- Util dependencies -->
@@ -861,8 +777,23 @@
       </dependency>
       <dependency>
         <groupId>org.apache.commons</groupId>
-        <artifactId>commons-fileupload2-jakarta</artifactId>
-        <version>2.0.0-M1</version>
+        <artifactId>commons-fileupload2-jakarta-servlet6</artifactId>
+        <version>2.0.0-M4</version>
+        <exclusions>
+          <exclusion>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-fileupload2-core</artifactId>
+        <version>2.0.0-M4</version>
         <exclusions>
           <exclusion>
             <groupId>commons-io</groupId>
@@ -931,18 +862,17 @@
       </dependency>
 
       <!-- XML and HTML parsing dependencies -->
-      <!-- Provided by Wildfly -->
+      <!-- JAXB provided by Wildfly -->
       <dependency>
         <groupId>org.glassfish.jaxb</groupId>
         <artifactId>jaxb-runtime</artifactId>
-        <version>4.0.3</version>
+        <version>4.0.6</version>
         <scope>provided</scope>
       </dependency>
       <dependency>
         <groupId>xerces</groupId>
         <artifactId>xercesImpl</artifactId>
         <version>2.12.2</version>
-        <scope>provided</scope>
       </dependency>
       <!-- HTML Parsing API -->
       <dependency>
@@ -984,11 +914,6 @@
         <artifactId>encoder</artifactId>
         <version>${owasp.version}</version>
       </dependency>
-      <dependency>
-        <groupId>org.owasp.encoder</groupId>
-        <artifactId>encoder-jsp</artifactId>
-        <version>${owasp.version}</version>
-      </dependency>
 
       <!-- old API for making charts in Java -->
       <dependency>
@@ -1028,64 +953,22 @@
 
       <!-- CMIS -->
       <dependency>
-        <groupId>org.apache.chemistry.opencmis</groupId>
-        <artifactId>chemistry-opencmis-commons-api</artifactId>
+        <groupId>org.silverpeas.jakarta</groupId>
+        <artifactId>cmis</artifactId>
         <version>1.1.0</version>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.chemistry.opencmis</groupId>
-        <artifactId>chemistry-opencmis-commons-impl</artifactId>
-        <version>1.1.0</version>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.chemistry.opencmis</groupId>
-        <artifactId>chemistry-opencmis-server-bindings</artifactId>
-        <version>1.1.0</version>
-        <exclusions>
-          <exclusion>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.antlr</groupId>
-            <artifactId>antlr-runtime</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.apache.cxf</groupId>
-            <artifactId>cxf-rt-frontend-jaxws</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.apache.cxf</groupId>
-            <artifactId>cxf-rt-transports-http</artifactId>
-          </exclusion>
-        </exclusions>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.chemistry.opencmis</groupId>
-        <artifactId>chemistry-opencmis-server-support</artifactId>
-        <version>1.1.0</version>
-        <exclusions>
-          <exclusion>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.antlr</groupId>
-            <artifactId>antlr-runtime</artifactId>
-          </exclusion>
-        </exclusions>
+        <classifier>jakarta</classifier>
       </dependency>
       <!-- these dependencies are provided by Wildfly for SOAP -->
       <dependency>
         <groupId>org.apache.cxf</groupId>
         <artifactId>cxf-rt-frontend-jaxws</artifactId>
-        <version>3.4.7</version>
+        <version>4.0.9</version>
         <scope>provided</scope>
       </dependency>
       <dependency>
         <groupId>org.apache.cxf</groupId>
         <artifactId>cxf-rt-transports-http</artifactId>
-        <version>3.4.7</version>
+        <version>4.0.9</version>
         <scope>provided</scope>
       </dependency>
 
@@ -1212,7 +1095,7 @@
       <dependency>
         <groupId>com.googlecode.owasp-java-html-sanitizer</groupId>
         <artifactId>owasp-java-html-sanitizer</artifactId>
-        <version>20220608.1</version>
+        <version>20260102.1</version>
         <exclusions>
           <exclusion>
             <groupId>com.google.guava</groupId>
@@ -1245,27 +1128,27 @@
 
   <properties>
     <!-- property used by the CI to both deploy a build version and release the next stable version -->
-    <next.release>1.7</next.release>
+    <next.release>2.0</next.release>
     <maven.compiler.release>11</maven.compiler.release>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <owasp.version>1.2.3</owasp.version>
+    <owasp.version>1.4.0</owasp.version>
     <!-- WARNING: the following dependencies version must be equal to the one provided by Wildfly -->
-    <slf4j.version>2.0.7</slf4j.version>
-    <log4j.version>2.25.0</log4j.version>
-    <resteasy.version>6.2.5.Final</resteasy.version>
-    <hibernate.version>6.2.6.Final</hibernate.version>
-    <jackson-version>2.17.1</jackson-version>
+    <slf4j.version>2.0.17</slf4j.version>
+    <log4j.version>2.23.1</log4j.version>
+    <resteasy.version>6.2.14.Final</resteasy.version>
+    <hibernate.version>6.6.31.Final</hibernate.version>
+    <jackson-version>2.18.4</jackson-version>
     <bouncycastle.version>1.81</bouncycastle.version>
     <lucene.version>9.12.2</lucene.version>
     <!-- END WARNING -->
     <tika.version>2.7.0</tika.version>
     <poi.version>5.4.1</poi.version>
-    <oak.version>1.82.0</oak.version>
+    <oak.version>1.90.0</oak.version>
     <!-- version of Netty to be used by Oak instead of its own dependencies on this framework -->
-    <netty.version>4.2.2.Final</netty.version>
+    <netty.version>4.2.7.Final</netty.version>
     <!-- version of JackRabbit for the WebDAV support -->
-    <jackrabbit.version>2.22.0</jackrabbit.version>
-    <mongo.driver.version>3.12.13</mongo.driver.version>
+    <jackrabbit.version>2.22.2</jackrabbit.version>
+    <mongo.driver.version>5.6.2</mongo.driver.version>
   </properties>
 
 </project>
