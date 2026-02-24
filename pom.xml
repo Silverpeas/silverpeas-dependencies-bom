@@ -1354,7 +1354,7 @@
     <bouncycastle.version>1.81</bouncycastle.version>
     <lucene.version>9.12.2</lucene.version>
     <!-- END WARNING -->
-    <tika.version>2.7.0</tika.version>
+    <tika.version>3.2.2</tika.version>
     <poi.version>5.4.1</poi.version>
     <oak.version>1.82.0</oak.version>
     <!-- version of Netty to be used by Oak instead of its own dependencies on this framework -->
