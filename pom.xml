@@ -115,17 +115,7 @@
       <dependency>
         <groupId>javax.portlet</groupId>
         <artifactId>portlet-api</artifactId>
-        <version>3.0.1</version>
-        <exclusions>
-          <exclusion>
-            <groupId>javax.enterprise</groupId>
-            <artifactId>cdi-api</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>javax</groupId>
-            <artifactId>javaee-api</artifactId>
-          </exclusion>
-        </exclusions>
+        <version>2.0</version>
       </dependency>
       <dependency>
         <groupId>com.sun.portal.portletcontainer</groupId>
