@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-    Copyright (C) 2000 - 2024 Silverpeas
+    Copyright (C) 2000 - 2026 Silverpeas
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -93,7 +93,7 @@
       <dependency>
         <groupId>org.quartz-scheduler</groupId>
         <artifactId>quartz</artifactId>
-        <version>2.5.1</version>
+        <version>2.5.2</version>
       </dependency>
 
       <!-- Jackson dependencies. Provided by Wildfly -->
@@ -106,6 +106,12 @@
       <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
         <artifactId>jackson-databind</artifactId>
+        <version>${jackson-version}</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.fasterxml.jackson.datatype</groupId>
+        <artifactId>jackson-datatype-jsr310</artifactId>
         <version>${jackson-version}</version>
         <scope>provided</scope>
       </dependency>
@@ -169,33 +175,97 @@
       <dependency>
         <groupId>com.drewnoakes</groupId>
         <artifactId>metadata-extractor</artifactId>
-        <version>2.18.0</version>
+        <version>2.20.0</version>
       </dependency>
       <dependency>
         <groupId>org.apache.pdfbox</groupId>
         <artifactId>pdfbox</artifactId>
-        <version>2.0.26</version>
+        <version>3.0.7</version>
+        <exclusions>
+          <exclusion>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk18on</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcpkix-jdk18on</artifactId>
+          </exclusion>
+        </exclusions>
       </dependency>
       <dependency>
         <groupId>org.apache.pdfbox</groupId>
         <artifactId>pdfbox-tools</artifactId>
-        <version>2.0.26</version>
+        <version>3.0.7</version>
+        <exclusions>
+          <exclusion>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-io</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcpkix-jdk18on</artifactId>
+          </exclusion>
+        </exclusions>
       </dependency>
       <dependency>
         <groupId>org.apache.poi</groupId>
         <artifactId>poi</artifactId>
         <version>${poi.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-io</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+          </exclusion>
+        </exclusions>
       </dependency>
       <dependency>
         <groupId>org.apache.poi</groupId>
         <artifactId>poi-scratchpad</artifactId>
         <version>${poi.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-io</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+          </exclusion>
+        </exclusions>
       </dependency>
       <dependency>
         <groupId>org.apache.poi</groupId>
         <artifactId>poi-ooxml</artifactId>
         <version>${poi.version}</version>
         <exclusions>
+          <exclusion>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+          </exclusion>
           <exclusion>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-io</artifactId>
@@ -208,6 +278,10 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-collections4</artifactId>
           </exclusion>
+          <exclusion>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+          </exclusion>
         </exclusions>
       </dependency>
       <!-- Tika dependencies -->
@@ -215,6 +289,12 @@
         <groupId>org.apache.tika</groupId>
         <artifactId>tika-core</artifactId>
         <version>${tika.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+          </exclusion>
+        </exclusions>
       </dependency>
       <dependency>
         <groupId>org.apache.tika</groupId>
@@ -284,11 +364,11 @@
           </exclusion>
           <exclusion>
             <groupId>org.bouncycastle</groupId>
-            <artifactId>bcmail-jdk15on</artifactId>
+            <artifactId>bcjmail-jdk18on</artifactId>
           </exclusion>
           <exclusion>
             <groupId>org.bouncycastle</groupId>
-            <artifactId>bcprov-jdk15on</artifactId>
+            <artifactId>bcprov-jdk18on</artifactId>
           </exclusion>
           <exclusion>
             <groupId>xerces</groupId>
@@ -353,7 +433,7 @@
       <dependency>
         <groupId>org.projectlombok</groupId>
         <artifactId>lombok</artifactId>
-        <version>1.18.28</version>
+        <version>1.18.46</version>
         <scope>runtime</scope>
       </dependency>
 
@@ -374,6 +454,10 @@
           <exclusion>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
           </exclusion>
           <exclusion>
             <groupId>commons-io</groupId>
@@ -403,15 +487,16 @@
         <artifactId>org.osgi.annotation.versioning</artifactId>
         <version>1.1.2</version>
       </dependency>
+      <!-- Required by Oak, Tika, and many others -->
       <dependency>
         <groupId>commons-io</groupId>
         <artifactId>commons-io</artifactId>
-        <version>2.21.0</version>
+        <version>2.22.0</version>
       </dependency>
       <dependency>
         <groupId>commons-codec</groupId>
         <artifactId>commons-codec</artifactId>
-        <version>1.20.0</version>
+        <version>1.22.0</version>
       </dependency>
       <!-- the filesystem storage backend for Oak -->
       <dependency>
@@ -456,7 +541,7 @@
       <dependency>
         <groupId>io.dropwizard.metrics</groupId>
         <artifactId>metrics-core</artifactId>
-        <version>3.2.6</version>
+        <version>4.2.26</version> <!-- required by opensaml -->
       </dependency>
       <!-- the document-based datasource storage backend for Oak -->
       <dependency>
@@ -562,13 +647,21 @@
         <groupId>org.bouncycastle</groupId>
         <artifactId>bcprov-jdk18on</artifactId>
         <version>${bouncycastle.version}</version>
-        <scope>compile</scope>
       </dependency>
       <dependency>
         <groupId>org.bouncycastle</groupId>
         <artifactId>bcmail-jdk18on</artifactId>
         <version>${bouncycastle.version}</version>
-        <scope>compile</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.bouncycastle</groupId>
+        <artifactId>bcjmail-jdk18on</artifactId>
+        <version>${bouncycastle.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.bouncycastle</groupId>
+        <artifactId>bcpkix-jdk18on</artifactId>
+        <version>${bouncycastle.version}</version>
       </dependency>
 
       <!-- Authentication mechanisms -->
@@ -586,6 +679,34 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
           </exclusion>
+          <!-- legacy Bouncy Castle jdk15on 1.70: duplicates the org.bouncycastle.* packages
+               already provided by the bc*-jdk18on 1.84 artifacts (split-package on the classpath) -->
+          <exclusion>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcpkix-jdk15on</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk15on</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcutil-jdk15on</artifactId>
+          </exclusion>
+          <!-- legacy javax JAXB 2.3 / activation stack: superseded by the Jakarta XML Bind 4.0
+               (jakarta.xml.bind-api / jaxb-runtime) and jakarta.activation stacks -->
+          <exclusion>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-core</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>javax.activation</groupId>
+            <artifactId>javax.activation-api</artifactId>
+          </exclusion>
         </exclusions>
       </dependency>
 
@@ -593,7 +714,7 @@
       <dependency>
         <groupId>org.ehcache</groupId>
         <artifactId>ehcache</artifactId>
-        <version>3.11.1</version>
+        <version>3.12.0</version>
         <classifier>jakarta</classifier>
         <exclusions>
           <exclusion>
@@ -673,7 +794,7 @@
       <dependency>
         <groupId>org.mnode.ical4j</groupId>
         <artifactId>ical4j</artifactId>
-        <version>3.2.12</version>
+        <version>4.3.0</version>
         <exclusions>
           <exclusion>
             <groupId>org.slf4j</groupId>
@@ -765,7 +886,7 @@
       <dependency>
         <groupId>org.postgresql</groupId>
         <artifactId>postgresql</artifactId>
-        <version>42.7.8</version>
+        <version>42.7.12</version>
       </dependency>
       <dependency>
         <groupId>net.sourceforge.jtds</groupId>
@@ -789,7 +910,7 @@
       <dependency>
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-fileupload2-jakarta-servlet6</artifactId>
-        <version>2.0.0-M4</version>
+        <version>2.0.0-M5</version>
         <exclusions>
           <exclusion>
             <groupId>commons-io</groupId>
@@ -804,7 +925,7 @@
       <dependency>
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-fileupload2-core</artifactId>
-        <version>2.0.0-M4</version>
+        <version>2.0.0-M5</version>
         <exclusions>
           <exclusion>
             <groupId>commons-io</groupId>
@@ -824,29 +945,56 @@
       <dependency>
         <groupId>commons-validator</groupId>
         <artifactId>commons-validator</artifactId>
-        <version>1.7</version>
+        <version>1.10.1</version>
+        <exclusions>
+          <exclusion>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+          </exclusion>
+        </exclusions>
       </dependency>
       <!-- Usually provided by Tika, but it should be excluded so that we can use our
            own dependency (for classloading issues as SerializationUtils is used by us) -->
       <dependency>
+        <groupId>commons-beanutils</groupId>
+        <artifactId>commons-beanutils</artifactId>
+        <version>1.11.0</version>
+        <exclusions>
+          <!-- commons-logging is pinned to a non-existent sentinel version in this BOM;
+               exclude it here (as done for commons-validator) to keep the dep resolvable -->
+          <exclusion>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-lang3</artifactId>
-        <version>3.18.0</version>
+        <version>3.20.0</version>
       </dependency>
       <dependency>
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-text</artifactId>
-        <version>1.13.1</version>
+        <version>1.15.0</version>
       </dependency>
       <dependency>
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-exec</artifactId>
-        <version>1.5.0</version>
+        <version>1.6.0</version>
       </dependency>
       <dependency>
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-compress</artifactId>
-        <version>1.27.1</version>
+        <version>1.28.0</version>
       </dependency>
       <!-- Required by Jackrabbit WebDAV and by Google APIs -->
       <dependency>
@@ -890,7 +1038,7 @@
       <dependency>
         <groupId>com.ibm.icu</groupId>
         <artifactId>icu4j</artifactId>
-        <version>73.1</version>
+        <version>78.3</version>
       </dependency>
       <!-- Cryptolib TODO: replace it by JDK to handle X509 certificate  -->
       <dependency>
@@ -943,7 +1091,7 @@
       <dependency>
         <groupId>com.itextpdf</groupId>
         <artifactId>itextpdf</artifactId>
-        <version>5.5.13.4</version>
+        <version>5.5.13.5</version>
       </dependency>
 
       <!-- OWASP encoders of text for security purpose -->
@@ -1025,17 +1173,17 @@
       <dependency>
         <groupId>io.grpc</groupId>
         <artifactId>grpc-context</artifactId>
-        <version>1.54.1</version>
+        <version>1.82.1</version>
       </dependency>
       <dependency>
         <groupId>com.google.guava</groupId>
         <artifactId>guava</artifactId>
-        <version>32.0.0-jre</version>
+        <version>33.0.0-jre</version> <!-- required by opensaml -->
       </dependency>
       <dependency>
         <groupId>com.google.code.gson</groupId>
         <artifactId>gson</artifactId>
-        <version>2.10.1</version>
+        <version>2.14.0</version>
       </dependency>
       <dependency>
         <groupId>com.google.api-client</groupId>
@@ -1171,19 +1319,21 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <owasp.version>1.4.0</owasp.version>
     <!-- WARNING: the following dependencies version must be equal to the one provided by Wildfly -->
-    <slf4j.version>2.0.17</slf4j.version>
-    <log4j.version>2.23.1</log4j.version>
+    <slf4j.version>2.0.18</slf4j.version>
+    <log4j.version>2.26.1</log4j.version>
     <resteasy.version>6.2.14.Final</resteasy.version>
     <hibernate.version>6.6.31.Final</hibernate.version>
     <jackson-version>2.18.4</jackson-version>
-    <bouncycastle.version>1.81</bouncycastle.version>
+    <bouncycastle.version>1.84</bouncycastle.version>
+    <!-- Lucene is bundled (compile scope): 10.x requires Java 21, 9.x is the last branch
+         supporting Java 11/17. Keep in sync with the Lucene version bundled by Wildfly. -->
     <lucene.version>9.12.2</lucene.version>
     <!-- END WARNING -->
-    <tika.version>2.7.0</tika.version>
-    <poi.version>5.4.1</poi.version>
-    <oak.version>1.90.0</oak.version>
+    <tika.version>3.3.1</tika.version>
+    <poi.version>5.5.1</poi.version>
+    <oak.version>2.2.0</oak.version>
     <!-- version of Netty to be used by Oak instead of its own dependencies on this framework -->
-    <netty.version>4.2.7.Final</netty.version>
+    <netty.version>4.2.15.Final</netty.version>
     <!-- version of JackRabbit for the WebDAV support -->
     <jackrabbit.version>2.22.2</jackrabbit.version>
     <mongo.driver.version>5.6.2</mongo.driver.version>
