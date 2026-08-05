@@ -1315,7 +1315,7 @@
   <properties>
     <!-- property used by the CI to both deploy a build version and release the next stable version -->
     <next.release>2.0</next.release>
-    <maven.compiler.release>11</maven.compiler.release>
+    <maven.compiler.release>17</maven.compiler.release>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <owasp.version>1.4.0</owasp.version>
     <!-- WARNING: the following dependencies version must be equal to the one provided by Wildfly -->
