@@ -1321,22 +1321,30 @@
     <!-- WARNING: the following dependencies version must be equal to the one provided by Wildfly -->
     <slf4j.version>2.0.18</slf4j.version>
     <log4j.version>2.26.1</log4j.version>
-    <resteasy.version>6.2.14.Final</resteasy.version>
-    <hibernate.version>6.6.31.Final</hibernate.version>
+    <resteasy.version>6.2.15.Final</resteasy.version>
+    <hibernate.version>6.6.40.Final</hibernate.version>
     <jackson-version>2.18.4</jackson-version>
     <bouncycastle.version>1.84</bouncycastle.version>
-    <!-- Lucene is bundled (compile scope): 10.x requires Java 21, 9.x is the last branch
-         supporting Java 11/17. Keep in sync with the Lucene version bundled by Wildfly. -->
-    <lucene.version>9.12.2</lucene.version>
+    <!-- Lucene is bundled (compile scope) and 10.x requires Java 21. It deliberately drifts
+         from the 9.11.1 Wildfly ships for Hibernate Search: that module is not exposed to our
+         deployment, which declares neither a jboss-deployment-structure.xml nor any use of
+         Hibernate Search. -->
+    <lucene.version>10.5.1</lucene.version>
     <!-- END WARNING -->
-    <tika.version>3.3.1</tika.version>
+    <tika.version>3.3.2</tika.version>
     <poi.version>5.5.1</poi.version>
-    <oak.version>2.2.0</oak.version>
+    <oak.version>2.4.0</oak.version>
     <!-- version of Netty to be used by Oak instead of its own dependencies on this framework -->
-    <netty.version>4.2.15.Final</netty.version>
+    <netty.version>4.2.17.Final</netty.version>
     <!-- version of JackRabbit for the WebDAV support -->
     <jackrabbit.version>2.22.2</jackrabbit.version>
-    <mongo.driver.version>5.6.2</mongo.driver.version>
+    <!-- CAUTION: capped by Oak, whose oak-store-document restricts itself to com.mongodb
+         [5.2, 5.3) in its OSGi manifest. The driver added getTransactionSpan() to the
+         ClientSession interface in 5.7.0, which Oak's TrackingClientSession does not implement:
+         anything from 5.7.0 on fails at runtime with an AbstractMethodError as soon as a
+         repository is opened. Stay on 5.6.x until a release of Oak newer than ${oak.version}
+         catches up. -->
+    <mongo.driver.version>5.6.5</mongo.driver.version>
   </properties>
 
 </project>
